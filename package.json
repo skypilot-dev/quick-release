@@ -1,0 +1,10 @@
+{
+  "name": "@skypilot/bump-version",
+  "version": "0.0.0",
+  "description": "Automatically bumps a project's version number",
+  "main": "lib/index.js",
+  "repository": "https://github.com/skypilotcc/bump-version.git",
+  "author": "William Thorsen <william@thorsen.dev>",
+  "license": "ISC",
+  "private": false
+}
