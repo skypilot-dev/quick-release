@@ -3,8 +3,27 @@
   "version": "0.0.0",
   "description": "Automatically bumps a project's version number",
   "main": "lib/index.js",
-  "repository": "https://github.com/skypilotcc/bump-version.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skypilotcc/bump-version.git"
+  },
   "author": "William Thorsen <william@thorsen.dev>",
   "license": "ISC",
-  "private": false
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/skypilotcc/bump-version/issues"
+  },
+  "homepage": "https://github.com/skypilotcc/bump-version#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "automatically",
+    "bump",
+    "package",
+    "file",
+    "version",
+    "number",
+    "semantic"
+  ]
 }
