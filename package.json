@@ -49,6 +49,7 @@
   ],
   "types": "lib/index.d.ts",
   "dependencies": {
+    "@skypilot/nodegit-tools": "^0.1.5-alpha.3",
     "@skypilot/versioner": "^0.1.0-alpha.3"
   }
 }
