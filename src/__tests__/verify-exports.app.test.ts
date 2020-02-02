@@ -3,6 +3,7 @@ import * as actualExports from '../index';
 const intendedExports: string[] = [
   /* Change-level functions */
   'parseMessageChangeLevel',
+  'parseMessagesChangeLevel',
 
   /* Constants & enums */
   'ChangeLevel',
