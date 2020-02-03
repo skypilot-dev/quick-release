@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Automatically bumps a project's version number",
   "main": "lib/index.js",
+  "bin": {
+    "get-next-version": "./lib/scripts/get-next-version.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skypilotcc/bump-version.git"
