@@ -39,6 +39,7 @@
     "semantic"
   ],
   "devDependencies": {
+    "@skypilot/common-types": "^0.5.0",
     "@skypilot/toolchain": "^1.9.1-next.2"
   },
   "publishConfig": {

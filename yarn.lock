@@ -1028,6 +1028,11 @@
   dependencies:
     type-detect "4.0.8"
 
+"@skypilot/common-types@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@skypilot/common-types/-/common-types-0.5.0.tgz#d44404dbc55637231c490b6e5a12cc763717e244"
+  integrity sha512-IFvrOmIonfI78/SKnf79urSD/dp5C9+Xje13Yht6nesVVnDw98GtaIjC3qYiojSVV+JBJQ9yxipUF40+4neygQ==
+
 "@skypilot/nodegit-tools@^0.1.5-alpha.3":
   version "0.1.5-alpha.3"
   resolved "https://registry.yarnpkg.com/@skypilot/nodegit-tools/-/nodegit-tools-0.1.5-alpha.3.tgz#10052d001b089c44295325f0895c741f900107ac"
