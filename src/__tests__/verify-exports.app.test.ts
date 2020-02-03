@@ -11,6 +11,7 @@ const intendedExports: string[] = [
   /* Version functions */
   'getCoreVersion',
   'getNextReleaseVersion',
+  'getNextVersion',
 ];
 
 describe('Export verification', () => {
