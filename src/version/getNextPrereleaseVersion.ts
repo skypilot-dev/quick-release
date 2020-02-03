@@ -2,7 +2,7 @@ import { SortComparison } from '@skypilot/common-types';
 import { retrieveCurrentBranchName } from '@skypilot/nodegit-tools';
 import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
-import { findCommitsSinceMaster } from '../commit/findCommitsSinceMaster';
+import { findCommitsSinceStable } from '../commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
 import { retrieveTags } from '../tag/retrieveTags';
 import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
@@ -53,7 +53,7 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const coreVersion = getCoreVersion();
 
   /* Get all commits since this branch diverged from `master`. */
-  const commitsSinceMaster = (await findCommitsSinceMaster())
+  const commitsSinceMaster = (await findCommitsSinceStable())
     .map(({ message }) => message);
   const changeLevel = parseMessagesChangeLevel(commitsSinceMaster);
 

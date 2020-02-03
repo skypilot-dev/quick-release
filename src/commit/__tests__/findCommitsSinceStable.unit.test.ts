@@ -1,9 +1,9 @@
 import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
-import { findCommitsSinceMaster } from '../findCommitsSinceMaster';
+import { findCommitsSinceStable } from '../findCommitsSinceStable';
 
 describe('findCommitsSinceMaster()', () => {
   it('should return an array of commits', async () => {
-    const commits: CommitRecord[] = await findCommitsSinceMaster();
+    const commits: CommitRecord[] = await findCommitsSinceStable();
     expect(Array.isArray(commits)).toBe(true);
     if (commits.length > 0) {
       const [firstCommit] = commits;

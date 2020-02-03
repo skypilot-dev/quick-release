@@ -4,6 +4,6 @@ import { findCommitsSinceSha } from './findCommitsSinceSha';
 
 export async function findCommitsSinceTag(tagName: string): Promise<CommitRecord[]> {
   const taggedCommit = await findCommitByTagName(tagName);
-  const taggedSha = await getCommitRecord(taggedCommit).sha;
+  const taggedSha = getCommitRecord(taggedCommit).sha;
   return findCommitsSinceSha(taggedSha);
 }
