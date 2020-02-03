@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { findUpTree } from '../common/filesystem/findUpTree';
 import { readPackageFile } from '../common/packageFile/readPackageFile';
 import { writePackageFile } from '../common/packageFile/writePackageFile';
