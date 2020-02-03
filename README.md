@@ -7,5 +7,6 @@ Automatically bumps a project's version number
 The library also exposes the following functions:
 
 - `getCoreVersion(): string`
+- `getCurrentVersion(): string`
 - `parseMessageChangeLevel(message: string): ChangeLevel`
 - `parseMessagesChangeLevel(messages: string[]): ChangeLevel`

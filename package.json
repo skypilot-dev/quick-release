@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
+    "get-current-version": "./lib/scripts/get-current-version.js",
     "get-next-version": "./lib/scripts/get-next-version.js"
   },
   "repository": {
