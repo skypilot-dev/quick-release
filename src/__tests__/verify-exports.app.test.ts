@@ -7,6 +7,9 @@ const intendedExports: string[] = [
 
   /* Constants & enums */
   'ChangeLevel',
+
+  /* Version functions */
+  'getCoreVersion',
 ];
 
 describe('Export verification', () => {
