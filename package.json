@@ -27,6 +27,7 @@
     "compile-ts": "babel ./src --out-dir ./lib --extensions .ts --ignore '**/__tests__/*' --ignore '**/*.d.ts' && yarn run generate-typings",
     "cq": "yarn run all-cq-checks",
     "generate-typings": "tsc --project tsconfig.generate-typings.json",
+    "get-next-version": "babel-node --extensions .ts src/scripts/get-next-version.ts",
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
     "publish:default": "yarn publish --non-interactive",
@@ -56,6 +57,6 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@skypilot/nodegit-tools": "^0.1.5-alpha.3",
-    "@skypilot/versioner": "^0.1.0-alpha.3"
+    "@skypilot/versioner": "^0.1.0-alpha.8"
   }
 }
