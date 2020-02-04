@@ -1,53 +1,53 @@
-import { SortComparison } from '@skypilot/common-types';
 import { ReleaseVersion } from '@skypilot/versioner';
-import { ChangeLevel } from '..';
-import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceTag } from '../commit/findCommitsSinceTag';
-import { STABLE_BRANCH } from '../config';
 import { retrieveTags } from '../tag/retrieveTags';
 import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
+import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
 
-type VersionRecord = { releaseVersion: ReleaseVersion };
-type ReleaseVersionSorter = (a: VersionRecord, b: VersionRecord) => SortComparison;
-
-const sorterOnReleaseVersion: ReleaseVersionSorter = (a, b) => {
-  const releaseVersionA = a.releaseVersion;
-  const releaseVersionB = b.releaseVersion;
-  return ReleaseVersion.sorter(releaseVersionA, releaseVersionB);
-};
 
 export async function getNextReleaseVersion(): Promise<string> {
+  const currentVersion = getCoreVersion();
   const versionPattern = ReleaseVersion.versionPattern();
-  const tagsAtCurrentCommit = await retrieveTagsAtHead();
 
-  /* Check whether the current channel already has a tag at the current commit. */
-  if (tagsAtCurrentCommit.some(({ name }) => versionPattern.test(name))) {
-    /* FIXME: Return a value instead of throwing an error. */
-    throw new Error(`This commit has already been released to the '${STABLE_BRANCH}' branch`);
+  /* First handle the case when the current commit is already tagged as a release. */
+  const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
+    .map(({ name }) => name)
+    .filter(ReleaseVersion.versionFilter);
+
+  if (versionTagNamesAtCurrentCommit.length > 0) {
+    return  ReleaseVersion.highestOf([
+      currentVersion,
+      ...versionTagNamesAtCurrentCommit,
+    ]) as string;
   }
 
   /* FIXME: To avoid versioning errors, automatically create tags whenever the version changes
    * in `package.json`. */
-  /* Get all tags in the repo; then get the highest. */
-  const sortedVersionRecords = (await retrieveTags())
-    .filter((tag) => versionPattern.test(tag.name))
-    .map((tag) => ({
-      releaseVersion: new ReleaseVersion(tag.name),
-      tagName: tag.name,
-    }))
-    .sort(sorterOnReleaseVersion)
-    .reverse();
+  /* The current commit is not tagged as a release. Get the highest of all release tags. */
+  const releaseVersionStrings: string[] = (await retrieveTags())
+    .map(({ name }) => name)
+    .filter((tagName) => versionPattern.test(tagName));
 
-  if (sortedVersionRecords.length === 0) {
-    /* No releases yet, so this is the first stable release. */
-    return '1.0.0';
+  if (releaseVersionStrings.length === 0) {
+    /* No releases yet. Use `1.0.0` to signify the first release, unless the version in
+     * `package.json` is higher. */
+    return ReleaseVersion.highestOf(['1.0.0', currentVersion]);
   }
 
-  const coreVersion = sortedVersionRecords[0].tagName;
-  const commitsSinceTag = (await findCommitsSinceTag(coreVersion))
+  const highestTag = ReleaseVersion.highestOf(releaseVersionStrings);
+
+  /* If the version in the package file is less than the last tagged release, we don't know
+   * how to calculate the changes, so simply increment the patch. */
+  if (ReleaseVersion.highestOf([currentVersion, highestTag]) === highestTag) {
+    return new ReleaseVersion(highestTag).bump(ChangeLevel.patch).versionString;
+  }
+
+  /* Otherwise (this being the usual situation), find changes since the highest version tag. */
+  const minVersion = ReleaseVersion.highestOf([currentVersion, highestTag]);
+  const commitsSinceTag = (await findCommitsSinceTag(highestTag))
     .map(({ message }) => message);
   /* The version must always be incremented, so enforce a change level of at least `patch`. */
   const changeLevel = Math.max(parseMessagesChangeLevel(commitsSinceTag), ChangeLevel.patch);
-  const nextVersion = new ReleaseVersion(coreVersion).bump(changeLevel);
+  const nextVersion = new ReleaseVersion(minVersion).bump(changeLevel);
   return nextVersion.versionString;
 }
