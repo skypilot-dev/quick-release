@@ -1,5 +1,6 @@
 import { SortComparison } from '@skypilot/common-types';
 import { ReleaseVersion } from '@skypilot/versioner';
+import { ChangeLevel } from '..';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceTag } from '../commit/findCommitsSinceTag';
 import { STABLE_BRANCH } from '../config';
@@ -45,7 +46,8 @@ export async function getNextReleaseVersion(): Promise<string> {
   const coreVersion = sortedVersionRecords[0].tagName;
   const commitsSinceTag = (await findCommitsSinceTag(coreVersion))
     .map(({ message }) => message);
-  const changeLevel = parseMessagesChangeLevel(commitsSinceTag);
+  /* The version must always be incremented, so enforce a change level of at least `patch`. */
+  const changeLevel = Math.max(parseMessagesChangeLevel(commitsSinceTag), ChangeLevel.patch);
   const nextVersion = new ReleaseVersion(coreVersion).bump(changeLevel);
   return nextVersion.versionString;
 }
