@@ -1,5 +1,5 @@
 import { retrieveCurrentBranchName } from '@skypilot/nodegit-tools';
-import { bumpVersion, PrereleaseVersion, ReleaseVersion } from '@skypilot/versioner';
+import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceStable } from '../commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
@@ -24,13 +24,12 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   }
 
   const currentCoreVersionString = getCoreVersion();
-  const currentReleaseVersion = new ReleaseVersion(currentCoreVersionString);
-  const channelVersionFilter = PrereleaseVersion.versionFilterFn(currentReleaseVersion, channel);
+  const channelVersionPattern = PrereleaseVersion.versionPattern(channel);
 
-  /* Handle the case when the current commit is already tagged as a prerelease. */
+  /* Handle the case when the current commit is already tagged as a prerelease in this channel. */
   const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
     .map(({ name }) => name)
-    .filter(channelVersionFilter);
+    .filter((tagName) => channelVersionPattern.test(tagName));
 
   if (versionTagNamesAtCurrentCommit.length > 0) {
     /* The commit is already tagged as a prerelease in this channel, so return the highest tag. */
@@ -38,8 +37,8 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
     return new PrereleaseVersion(highestVersionAtHead).versionString;
   }
 
-  /* The release isn't tagged, which means this is a fresh release. Get all commits since this
-   * branch diverged from `master` and analyze them to determine the change level. */
+  /* The commit isn't tagged as a prerelease, so this is a new prerelease. Get all commits since
+   * this branch diverged from `master` & analyze them to determine the change level. */
   const commitsSinceMaster = (await findCommitsSinceStable())
     .map(({ message }) => message);
   const changeLevel = parseMessagesChangeLevel(commitsSinceMaster);
