@@ -15,6 +15,7 @@ export async function getNextReleaseVersion(): Promise<string> {
     .filter(ReleaseVersion.versionFilter);
 
   if (versionTagNamesAtCurrentCommit.length > 0) {
+    /* The commit is already tagged as a release, so return the highest tag. */
     const highestVersionAtHead = ReleaseVersion.highestOf([
       currentVersion,
       ...versionTagNamesAtCurrentCommit,

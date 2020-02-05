@@ -1,25 +1,16 @@
-import { SortComparison } from '@skypilot/common-types';
 import { retrieveCurrentBranchName } from '@skypilot/nodegit-tools';
-import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
+import { bumpVersion, PrereleaseVersion, ReleaseVersion } from '@skypilot/versioner';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceStable } from '../commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
 import { retrieveTags } from '../tag/retrieveTags';
 import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
+import { readPublishedVersions } from './parsePublishedVersions';
 import { getCoreVersion } from './getCoreVersion';
-
-type VersionRecord = { prereleaseVersion: PrereleaseVersion };
-type PrereleaseVersionSorter = (a: VersionRecord, b: VersionRecord) => SortComparison;
 
 export interface GetNextVersionOptions {
   channel?: string;
 }
-
-const sorterOnPrereleaseVersion: PrereleaseVersionSorter = (a, b) => {
-  const prereleaseVersionA = a.prereleaseVersion;
-  const prereleaseVersionB = b.prereleaseVersion;
-  return PrereleaseVersion.sorter(prereleaseVersionA, prereleaseVersionB);
-};
 
 export async function getNextPrereleaseVersion(options: GetNextVersionOptions = {}): Promise<string> {
   const {
@@ -32,34 +23,31 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
     );
   }
 
-  const channelVersionPattern = PrereleaseVersion.versionPattern(channel);
-  const tagsAtCurrentCommit = await retrieveTagsAtHead();
+  const currentCoreVersionString = getCoreVersion();
+  const currentReleaseVersion = new ReleaseVersion(currentCoreVersionString);
+  const channelVersionFilter = PrereleaseVersion.versionFilterFn(currentReleaseVersion, channel);
 
-  /* Check whether the current channel already has a tag at the current commit. */
-  const sortedVersionRecords = tagsAtCurrentCommit
-    .filter(({ name }) => channelVersionPattern.test(name))
-    .map((tag) => ({
-      prereleaseVersion: new PrereleaseVersion(tag.name),
-      tagName: tag.name,
-    }))
-    .sort(sorterOnPrereleaseVersion)
-    .reverse();
+  /* Handle the case when the current commit is already tagged as a prerelease. */
+  const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
+    .map(({ name }) => name)
+    .filter(channelVersionFilter);
 
-  /* TODO: Decide whether other action should be taken if a commit has already been tagged. */
-  if (sortedVersionRecords.length > 0) {
-    return sortedVersionRecords[0].prereleaseVersion.versionString;
+  if (versionTagNamesAtCurrentCommit.length > 0) {
+    /* The commit is already tagged as a prerelease in this channel, so return the highest tag. */
+    const highestVersionAtHead = PrereleaseVersion.highestOf(versionTagNamesAtCurrentCommit);
+    return new PrereleaseVersion(highestVersionAtHead).versionString;
   }
 
-  const coreVersion = getCoreVersion();
-
-  /* Get all commits since this branch diverged from `master`. */
+  /* The release isn't tagged, which means this is a fresh release. Get all commits since this
+   * branch diverged from `master` and analyze them to determine the change level. */
   const commitsSinceMaster = (await findCommitsSinceStable())
     .map(({ message }) => message);
   const changeLevel = parseMessagesChangeLevel(commitsSinceMaster);
 
-  /* Get all tags in the repo; `bumpVersion` will use them to compute the next iteration. */
-  const tagNames = (await retrieveTags()).map(({ name }) => name);
-
-  return bumpVersion(coreVersion, changeLevel, channel, tagNames);
+  /* Get all tags in the repo plus all tags fetched from from NPM;
+   * `bumpVersion` will use them to compute the next iteration. */
+  const tagNames = (await retrieveTags())
+    .map(({ name }) => name)
+    .concat(...readPublishedVersions());
+  return bumpVersion(currentCoreVersionString, changeLevel, channel, tagNames);
 }
-
