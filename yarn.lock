@@ -1074,10 +1074,10 @@
     pkginfo "^0.4.1"
     typescript "^3.7.5"
 
-"@skypilot/versioner@^0.1.0-alpha.8":
-  version "0.1.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-0.1.0-alpha.8.tgz#e7adb19347a353b6cf8d17b079f601c5c06a005d"
-  integrity sha512-KGP9o+d1/X9nx00K+1ynfTgLm02w9hZqN0ZMY6c0WAsRHIvBKqZXbpMs3VCmqScc7VAUnQiaFcU342PF1c7RoQ==
+"@skypilot/versioner@^0.1.0-alpha.10":
+  version "0.1.0-alpha.10"
+  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-0.1.0-alpha.10.tgz#1f40ffa045d430a069349bb146495ad1b3459cc0"
+  integrity sha512-wd5E4ppq/JH6e4AJ96nJi66wfqZqV3AHO29DwUDY0YgtloOJSPnkvwq2O+0C+pYVrrG8oX7YSLSLRoVBbxQsNw==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
