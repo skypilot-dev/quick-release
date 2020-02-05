@@ -1,24 +1,45 @@
 {
   "name": "@skypilot/bump-version",
-  "version": "0.0.0",
   "description": "Automatically bumps a project's version number",
+  "homepage": "https://github.com/skypilotcc/bump-version#readme",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
     "get-current-version": "./lib/scripts/get-current-version.js",
     "get-next-version": "./lib/scripts/get-next-version.js"
   },
+  "author": {
+    "email": "william@thorsen.dev",
+    "name": "William Thorsen"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skypilotcc/bump-version.git"
   },
-  "author": "William Thorsen <william@thorsen.dev>",
-  "license": "ISC",
-  "private": false,
   "bugs": {
     "url": "https://github.com/skypilotcc/bump-version/issues"
   },
-  "homepage": "https://github.com/skypilotcc/bump-version#readme",
+  "keywords": [
+    "automatically",
+    "bump",
+    "file",
+    "number",
+    "package",
+    "semantic",
+    "version"
+  ],
+  "dependencies": {
+    "@skypilot/nodegit-tools": "^1.0.1",
+    "@skypilot/versioner": "^1.0.0"
+  },
+  "devDependencies": {
+    "@skypilot/common-types": "^0.5.0",
+    "@skypilot/toolchain": "^1.14.6"
+  },
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "all-ci-checks": "yarn run all-cq-checks && yarn run build",
     "all-cq-checks": "yarn run typecheck && yarn run lint --quiet && yarn test",
@@ -35,28 +56,10 @@
     "test": "jest",
     "typecheck": "tsc"
   },
-  "keywords": [
-    "automatically",
-    "bump",
-    "package",
-    "file",
-    "version",
-    "number",
-    "semantic"
-  ],
-  "devDependencies": {
-    "@skypilot/common-types": "^0.5.0",
-    "@skypilot/toolchain": "^1.14.6"
-  },
+  "private": false,
+  "license": "ISC",
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "/lib"
-  ],
-  "types": "lib/index.d.ts",
-  "dependencies": {
-    "@skypilot/nodegit-tools": "^1.0.1",
-    "@skypilot/versioner": "^1.0.0"
-  }
+  "types": "lib/index.d.ts"
 }
