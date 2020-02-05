@@ -2,8 +2,8 @@ import { ReleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceTag } from '../commit/findCommitsSinceTag';
 import { retrieveTags } from '../tag/retrieveTags';
 import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
+import { readPublishedVersions } from './parsePublishedVersions';
 import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
-
 
 export async function getNextReleaseVersion(): Promise<string> {
   const currentVersion = getCoreVersion();
@@ -21,11 +21,10 @@ export async function getNextReleaseVersion(): Promise<string> {
     ]) as string;
   }
 
-  /* FIXME: To avoid versioning errors, automatically create tags whenever the version changes
-   * in `package.json`. */
   /* The current commit is not tagged as a release. Get the highest of all release tags. */
   const releaseVersionStrings: string[] = (await retrieveTags())
     .map(({ name }) => name)
+    .concat(...readPublishedVersions())
     .filter((tagName) => versionPattern.test(tagName));
 
   if (releaseVersionStrings.length === 0) {
