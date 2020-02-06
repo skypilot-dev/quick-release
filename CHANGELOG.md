@@ -1,4 +1,13 @@
-## [1.0.6](https://github.com/skypilotcc/bump-version/compare/v1.0.5...v1.0.6) (2020-02-06)
+## [1.0.7](https://github.com/skypilotcc/bump-version/compare/v1.0.7-next.0...v1.0.7) (2020-02-06)
+
+
+### Bug Fixes
+
+* Tip of stable branch is not identified ([afa380e](https://github.com/skypilotcc/bump-version/commit/afa380e12b26ecd5655d65f4cdeade2a1797ce12))
+
+
+
+## [1.0.7-next.0](https://github.com/skypilotcc/bump-version/compare/v1.0.6...v1.0.7-next.0) (2020-02-06)
 
 
 ### Bug Fixes
