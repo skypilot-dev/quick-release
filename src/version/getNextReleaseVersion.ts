@@ -39,7 +39,7 @@ export async function getNextReleaseVersion(): Promise<string> {
 
   /* If the version in the package file is less than the last tagged release, we don't know
    * how to calculate the changes, so simply increment the patch. */
-  if (ReleaseVersion.highestOf([currentVersion, highestTag]) === highestTag) {
+  if (ReleaseVersion.sorter(currentVersion, highestTag) < 0) {
     return new ReleaseVersion(highestTag).bump(ChangeLevel.patch).versionString;
   }
 

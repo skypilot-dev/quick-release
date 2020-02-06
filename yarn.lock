@@ -1096,10 +1096,10 @@
   resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-0.1.0-alpha.10.tgz#1f40ffa045d430a069349bb146495ad1b3459cc0"
   integrity sha512-wd5E4ppq/JH6e4AJ96nJi66wfqZqV3AHO29DwUDY0YgtloOJSPnkvwq2O+0C+pYVrrG8oX7YSLSLRoVBbxQsNw==
 
-"@skypilot/versioner@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-1.0.0.tgz#887c38c7ff8868fe016ea6bb36456c034b10eea8"
-  integrity sha512-BeuPJBRLkM4u68Pua/BRPKfoGBh4GYqxBi5mhKTz6ObMqhz4jklDTm0IHVxbR+uQIYON82Lu/s1+gfhPM8NZRA==
+"@skypilot/versioner@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-1.0.1.tgz#d458f1bd654138a1c3ea7d2cd56082b029db2044"
+  integrity sha512-tCABJ8Gheq+g/qRq/emEFyK/Dq6Urc/5Pkb1nZWgLYdwwp8Sb+3mHCq55PjO1Epy72aS/CQl0nhNg/yTesUk0w==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
