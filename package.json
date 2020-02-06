@@ -30,12 +30,12 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/nodegit-tools": "^1.0.2",
+    "@skypilot/nodegit-tools": "^1.0.3",
     "@skypilot/versioner": "^1.0.1"
   },
   "devDependencies": {
-    "@skypilot/common-types": "^0.5.0",
-    "@skypilot/toolchain": "^1.14.8"
+    "@skypilot/common-types": "^0.5.1",
+    "@skypilot/toolchain": "^2.0.0"
   },
   "files": [
     "/lib"
