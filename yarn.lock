@@ -1048,6 +1048,13 @@
   dependencies:
     nodegit "^0.26.4"
 
+"@skypilot/nodegit-tools@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@skypilot/nodegit-tools/-/nodegit-tools-1.0.2.tgz#5f461d80fbb86ee1d61c9583685ead85be0f78f0"
+  integrity sha512-qB4X6B+0qmPLEbgsEflnnId+T4OW8H62e/Ryyi+R6Zb1tn82ps6KT6UfGOmkGHlaG2Fivaw90G1+mp6E8yR2Hg==
+  dependencies:
+    nodegit "^0.26.4"
+
 "@skypilot/toolchain@^1.14.8":
   version "1.14.8"
   resolved "https://registry.yarnpkg.com/@skypilot/toolchain/-/toolchain-1.14.8.tgz#3e9f965ec0b4fe24300c6c79ec88d4fcd04bea9e"
