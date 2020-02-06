@@ -1,5 +1,6 @@
 import { retrieveCurrentBranchName } from '@skypilot/nodegit-tools';
 import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
+import { ChangeLevel } from '..';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceStable } from '../commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
@@ -23,7 +24,6 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
     );
   }
 
-  const currentCoreVersionString = getCoreVersion();
   const channelVersionPattern = PrereleaseVersion.versionPattern(channel);
 
   /* Handle the case when the current commit is already tagged as a prerelease in this channel. */
@@ -41,12 +41,13 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
    * this branch diverged from `master` & analyze them to determine the change level. */
   const commitsSinceMaster = (await findCommitsSinceStable())
     .map(({ message }) => message);
-  const changeLevel = parseMessagesChangeLevel(commitsSinceMaster);
+  /* The version must always be incremented, so enforce a change level of at least `patch`. */
+  const changeLevel = Math.max(parseMessagesChangeLevel(commitsSinceMaster), ChangeLevel.patch);
 
   /* Get all tags in the repo plus all tags fetched from from NPM;
    * `bumpVersion` will use them to compute the next iteration. */
   const tagNames = (await retrieveTags())
     .map(({ name }) => name)
     .concat(...readPublishedVersions());
-  return bumpVersion(currentCoreVersionString, changeLevel, channel, tagNames);
+  return bumpVersion(getCoreVersion(), changeLevel, channel, tagNames);
 }
