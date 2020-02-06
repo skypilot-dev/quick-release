@@ -2,7 +2,7 @@
   "name": "@skypilot/bump-version",
   "description": "Automatically bumps a project's version number",
   "homepage": "https://github.com/skypilotcc/bump-version#readme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "lib/index.js",
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
