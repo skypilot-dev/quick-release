@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/skypilotcc/bump-version/compare/v1.0.4...v1.0.5) (2020-02-06)
+
+
+### Bug Fixes
+
+* Prerelease relative to stable branch should be at least patch bump ([a0975e5](https://github.com/skypilotcc/bump-version/commit/a0975e59da683da04b3843fbd2955e6711777fba))
+
+
+
 ## [1.0.4](https://github.com/skypilotcc/bump-version/compare/v1.0.3-next.1...v1.0.4) (2020-02-06)
 
 
