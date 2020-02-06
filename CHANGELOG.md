@@ -1,4 +1,12 @@
-## [1.0.7](https://github.com/skypilotcc/bump-version/compare/v1.0.7-next.0...v1.0.7) (2020-02-06)
+## [1.0.8](https://github.com/skypilotcc/bump-version/compare/v1.0.8-next.0...v1.0.8) (2020-02-06)
+
+
+
+## [1.0.8-next.0](https://github.com/skypilotcc/bump-version/compare/v1.0.7-next.1...v1.0.8-next.0) (2020-02-06)
+
+
+
+## [1.0.7-next.1](https://github.com/skypilotcc/bump-version/compare/v1.0.7...v1.0.7-next.1) (2020-02-06)
 
 
 ### Bug Fixes
