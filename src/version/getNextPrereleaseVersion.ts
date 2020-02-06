@@ -39,10 +39,13 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
 
   /* The commit isn't tagged as a prerelease, so this is a new prerelease. Get all commits since
    * this branch diverged from `master` & analyze them to determine the change level. */
-  const commitsSinceMaster = (await findCommitsSinceStable())
+  const commitsSinceStable = (await findCommitsSinceStable())
     .map(({ message }) => message);
-  /* The version must always be incremented, so enforce a change level of at least `patch`. */
-  const changeLevel = Math.max(parseMessagesChangeLevel(commitsSinceMaster), ChangeLevel.patch);
+
+  const changeLevel = commitsSinceStable.length === 0
+    ? ChangeLevel.none
+    /* If there are changes since master, there must be at least a patch bump. */
+    : Math.max(parseMessagesChangeLevel(commitsSinceStable), ChangeLevel.patch);
 
   /* Get all tags in the repo plus all tags fetched from from NPM;
    * `bumpVersion` will use them to compute the next iteration. */
