@@ -42,9 +42,10 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const commitsSinceStable = (await findCommitsSinceStable())
     .map(({ message }) => message);
 
-  const changeLevel = commitsSinceStable.length === 0
+  /* If there are changes since master (the length includes the current commit),
+   * there must be at least a patch bump. */
+  const changeLevel = commitsSinceStable.length <= 1
     ? ChangeLevel.none
-    /* If there are changes since master, there must be at least a patch bump. */
     : Math.max(parseMessagesChangeLevel(commitsSinceStable), ChangeLevel.patch);
 
   /* Get all tags in the repo plus all tags fetched from from NPM;
