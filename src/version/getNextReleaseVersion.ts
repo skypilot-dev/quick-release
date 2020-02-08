@@ -24,23 +24,25 @@ export async function getNextReleaseVersion(): Promise<string> {
   }
 
   /* The current commit is not tagged as a release. Get the highest of all release tags. */
-  const releaseVersionStrings: string[] = (await retrieveTags())
+  const taggedVersions: string[] = (await retrieveTags())
     .map(({ name }) => name)
-    .concat(...readPublishedVersions())
     .filter((tagName) => versionPattern.test(tagName));
 
-  if (releaseVersionStrings.length === 0) {
+  const publishedVersions: string[] = readPublishedVersions();
+
+  if (taggedVersions.length === 0) {
     /* No releases yet. Use `1.0.0` to signify the first release, unless the version in
      * `package.json` is higher. */
     return ReleaseVersion.highestOf(['1.0.0', currentVersion]);
   }
 
-  const highestTag = ReleaseVersion.highestOf(releaseVersionStrings);
+  const highestVersion = ReleaseVersion.highestOf([...publishedVersions, ...taggedVersions]);
+  const highestTag = ReleaseVersion.highestOf(taggedVersions);
 
-  /* If the version in the package file is less than the last tagged release, we don't know
-   * how to calculate the changes, so simply increment the patch. */
+  /* The version in the package file should match the highest version. When it doesn't, the change
+   * level can't be calculated; fall back to doing a patch-bump on the highest known version. */
   if (ReleaseVersion.sorter(currentVersion, highestTag) < 0) {
-    return new ReleaseVersion(highestTag).bump(ChangeLevel.patch).versionString;
+    return new ReleaseVersion(highestVersion).bump(ChangeLevel.patch).versionString;
   }
 
   /* Otherwise (this being the usual situation), find changes since the highest version tag. */
