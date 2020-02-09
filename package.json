@@ -1,7 +1,7 @@
 {
-  "name": "@skypilot/bump-version",
+  "name": "@skypilot/quick-release",
   "description": "Automatically bumps a project's version number",
-  "homepage": "https://github.com/skypilotcc/bump-version#readme",
+  "homepage": "https://github.com/skypilotcc/quick-release#readme",
   "version": "1.0.11",
   "main": "lib/index.js",
   "bin": {
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skypilotcc/bump-version.git"
+    "url": "git+https://github.com/skypilotcc/quick-release.git"
   },
   "bugs": {
-    "url": "https://github.com/skypilotcc/bump-version/issues"
+    "url": "https://github.com/skypilotcc/quick-release/issues"
   },
   "keywords": [
     "automatically",
@@ -48,6 +48,7 @@
     "compile-ts": "babel ./src --out-dir ./lib --extensions .ts --ignore '**/__tests__/*' --ignore '**/*.d.ts' && yarn run generate-typings",
     "cq": "yarn run all-cq-checks",
     "generate-typings": "tsc --project tsconfig.generate-typings.json",
+    "get-current-version": "babel-node --extensions .ts src/scripts/get-current-version.ts",
     "get-next-version": "babel-node --extensions .ts src/scripts/get-next-version.ts",
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
