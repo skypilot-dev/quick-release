@@ -7,7 +7,6 @@ import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
 
 export async function getNextReleaseVersion(): Promise<string> {
   const currentVersion = getCoreVersion();
-  const versionPattern = ReleaseVersion.versionPattern();
 
   /* First handle the case when the current commit is already tagged as a release. */
   const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
@@ -26,9 +25,9 @@ export async function getNextReleaseVersion(): Promise<string> {
   /* The current commit is not tagged as a release. Get the highest of all release tags. */
   const taggedVersions: string[] = (await retrieveTags())
     .map(({ name }) => name)
-    .filter((tagName) => versionPattern.test(tagName));
+    .filter(ReleaseVersion.versionFilter);
 
-  const publishedVersions: string[] = readPublishedVersions();
+  const publishedVersions: string[] = readPublishedVersions().filter(ReleaseVersion.versionFilter);
 
   if (taggedVersions.length === 0) {
     /* No releases yet. Use `1.0.0` to signify the first release, unless the version in
