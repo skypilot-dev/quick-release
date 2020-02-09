@@ -16,3 +16,24 @@ prerelease:
     - 'beta'
     - 'next'
   publish: false
+versioning:
+  prefixes:
+    major:
+      - 'CHG'
+      - 'DROP'
+      - 'MAJOR'
+    minor:
+      - 'add'
+      - 'feat'
+      - 'minor'
+    patch:
+      - 'bug'
+      - 'chore'
+      - 'fix'
+      - 'patch'
+      - 'refactor'
+      - 'task'
+      - 'util'
+    none:
+      - 'docs'
+      - 'style'
