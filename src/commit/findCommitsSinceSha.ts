@@ -21,7 +21,7 @@ export async function findCommitsSinceSha(sha: string): Promise<CommitRecord[]> 
   const earliest = getCommitRecord(earliestCommit);
 
   const cmd = [
-    'log',
+    'git log',
     `--date='${ISO_TIMESTAMP_FORMAT}'`,
     "--format='%h %cd %s'",
     '--no-merges',

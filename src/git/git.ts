@@ -14,7 +14,6 @@ export async function git(gitCommand: string, options: GitOptions = {}): Promise
 
   const commandString = [
     preCommand,
-    'git',
     gitCommand,
   ].join(' ');
 
