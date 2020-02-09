@@ -1,6 +1,6 @@
-import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
+import { GitCommit } from '../types';
 
-export function parseCommitFromLogEntry(logEntry: string): CommitRecord {
+export function parseCommitFromLogEntry(logEntry: string): GitCommit {
   const splits = logEntry.trim().split(' ');
   const [sha, dateString, ...message] = splits;
 

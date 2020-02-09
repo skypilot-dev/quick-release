@@ -1,11 +1,10 @@
-import { CommitRecord } from '../types';
+import { GitCommit } from '../types';
 import { git } from '../git';
 import { findCommitBySha } from './findCommitBySha';
 
-export async function findCommitByTagName(tagName: string): Promise<CommitRecord | null> {
-  const sha: string = await git(`git rev-parse ${tagName}^{}`);
-  if (!sha) {
-    return null;
-  }
-  return findCommitBySha(sha);
+export async function findCommitByTagName(tagName: string): Promise<GitCommit | null> {
+  const gitCommand = `git rev-parse ${tagName}^{}`;
+  return git(gitCommand)
+    .then((sha) => findCommitBySha(sha))
+    .catch(() => null);
 }

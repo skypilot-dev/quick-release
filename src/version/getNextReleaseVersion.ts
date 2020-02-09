@@ -1,7 +1,7 @@
 import { ReleaseVersion } from '@skypilot/versioner';
-import { findCommitsSinceTag } from '../commit/findCommitsSinceTag';
-import { retrieveTags } from '../tag/retrieveTags';
-import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
+import { findCommitsSinceTag } from '../git/commit/findCommitsSinceTag';
+import { retrieveTags } from '../git/tag/retrieveTags';
+import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
 import { readPublishedVersions } from './parsePublishedVersions';
 import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
 

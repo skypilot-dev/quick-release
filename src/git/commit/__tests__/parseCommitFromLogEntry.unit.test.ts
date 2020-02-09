@@ -1,4 +1,4 @@
-import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
+import { GitCommit } from '../../types';
 import { parseCommitFromLogEntry } from '../parseCommitFromLogEntry';
 
 describe('parseCommitFromLogEntry(commitLogEntry:string', () => {
@@ -7,7 +7,7 @@ describe('parseCommitFromLogEntry(commitLogEntry:string', () => {
     // do something
     const commit = parseCommitFromLogEntry(logEntry);
 
-    const expectedCommit: CommitRecord = {
+    const expectedCommit: GitCommit = {
       date: new Date(Date.parse('2020-02-08T03:41:51Z')),
       message: 'fix path creation when writing commit messages',
       sha: '921ee99',

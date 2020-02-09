@@ -1,5 +1,5 @@
+import { GitTag } from '../../types';
 import { findTagByName } from '../findTagByName';
-import { GitTag } from '../../../tag/types';
 
 
 describe('findTagByName(tagName:string)', () => {

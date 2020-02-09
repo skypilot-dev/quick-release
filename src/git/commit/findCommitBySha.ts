@@ -1,15 +1,16 @@
-import { CommitRecord } from '../types';
-import { parseCommitFromLogEntry } from '../../commit/parseCommitFromLogEntry';
 import { git } from '../git';
+import { GitCommit } from '../types';
+import { parseCommitFromLogEntry } from './parseCommitFromLogEntry';
 
-import { PARSABLE_LOG_COMMAND } from './constants';
+import { PARSABLE_SHOW_COMMAND } from './constants';
 
-export async function findCommitBySha(sha: string): Promise<CommitRecord> {
+export async function findCommitBySha(sha: string): Promise<GitCommit | null> {
   const gitCommand = [
-    PARSABLE_LOG_COMMAND,
-    `${sha}^..${sha}`,
+    PARSABLE_SHOW_COMMAND,
+    sha,
   ].join(' ');
 
   return git(gitCommand)
-    .then((logEntry) => parseCommitFromLogEntry(logEntry));
+    .then((logEntry) => parseCommitFromLogEntry(logEntry))
+    .catch(() => null);
 }

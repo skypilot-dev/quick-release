@@ -1,5 +1,7 @@
 import { git } from '../git';
 
 export async function retrieveCurrentBranchName(): Promise<string> {
-  return git('git symbolic-ref --short HEAD');
+  return git('git symbolic-ref --short HEAD')
+    .then((branchName: string) => branchName)
+    .catch(() => '');
 }

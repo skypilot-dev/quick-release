@@ -1,7 +1,7 @@
-import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
+import { GitCommit } from '../types';
 import { parseCommitFromLogEntry } from './parseCommitFromLogEntry';
 
-export function parseCommitsFromLog(commitLog: string): CommitRecord[] {
+export function parseCommitsFromLog(commitLog: string): GitCommit[] {
   return commitLog
     .split('\n')
     .map((logEntry) => parseCommitFromLogEntry(logEntry));

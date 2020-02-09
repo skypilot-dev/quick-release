@@ -1,10 +1,10 @@
 import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
 import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
-import { findCommitsSinceStable } from '../commit/findCommitsSinceStable';
+import { findCommitsSinceStable } from '../git/commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
 import { retrieveCurrentBranchName } from '../git';
-import { retrieveTags } from '../tag/retrieveTags';
-import { retrieveTagsAtHead } from '../tag/retrieveTagsAtHead';
+import { retrieveTags } from '../git/tag/retrieveTags';
+import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
 import { readPublishedVersions } from './parsePublishedVersions';
 import { getCoreVersion } from './getCoreVersion';
 import { ChangeLevel } from '..';
@@ -17,6 +17,10 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const {
     channel = await retrieveCurrentBranchName(),
   } = options;
+
+  if (!channel) {
+    return '';
+  }
 
   if (channel === STABLE_BRANCH) {
     return Promise.reject(
