@@ -1,3 +1,16 @@
+## [1.0.9](https://github.com/skypilotcc/bump-version/compare/v1.0.9-beta.8...v1.0.9) (2020-02-09)
+
+
+
+## [1.0.9-beta.8](https://github.com/skypilotcc/bump-version/compare/v1.0.9-beta.7...v1.0.9-beta.8) (2020-02-09)
+
+
+### Bug Fixes
+
+* Version fails with invalid version string ([dae7488](https://github.com/skypilotcc/bump-version/commit/dae7488f0493495c984c179368e46c823f9485f7))
+
+
+
 ## [1.0.8](https://github.com/skypilotcc/bump-version/compare/v1.0.8-next.0...v1.0.8) (2020-02-06)
 
 
