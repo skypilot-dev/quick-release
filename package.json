@@ -7,7 +7,8 @@
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
     "get-current-version": "./lib/scripts/get-current-version.js",
-    "get-next-version": "./lib/scripts/get-next-version.js"
+    "get-next-version": "./lib/scripts/get-next-version.js",
+    "spqr-option": "./lib/scripts/spqr-option.js"
   },
   "author": {
     "email": "william@thorsen.dev",
@@ -46,10 +47,11 @@
   "scripts": {
     "all-ci-checks": "yarn run all-cq-checks && yarn run build",
     "all-cq-checks": "yarn run typecheck && yarn run lint --quiet && yarn test",
-    "build": "rm -rf lib && yarn run compile-ts",
+    "build": "rm -rf lib && yarn run copy-scripts-to-lib && yarn run compile-ts",
     "bump-version": "babel-node --extensions .ts src/scripts/bump-version.ts",
     "ci": "yarn run all-ci-checks",
     "compile-ts": "babel ./src --out-dir ./lib --extensions .ts --ignore '**/__tests__/*' --ignore '**/*.d.ts' && yarn run generate-typings",
+    "copy-scripts-to-lib": "babel-node --extensions .ts build/copy-scripts-to-lib.ts",
     "cq": "yarn run all-cq-checks",
     "generate-typings": "tsc --project tsconfig.generate-typings.json",
     "get-current-version": "babel-node --extensions .ts src/scripts/get-current-version.ts",
@@ -57,6 +59,7 @@
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
     "publish:default": "yarn publish --non-interactive",
+    "spqr-option": "babel-node --extensions .ts src/scripts/spqr-option.ts",
     "tc": "yarn run typecheck",
     "test": "jest",
     "typecheck": "tsc"

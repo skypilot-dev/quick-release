@@ -31,9 +31,13 @@ Quick Release exposes three commands:
 - `get-next-version`: Computes the next version number for your project and displays it to
 standard output
 
+- `spqr-option`: Returns the value mapped to a key in the `.skypilot/quick-release.yml` options
+file, defaulting to either a passed default value (if given) or the default from the default
+options file
+
 ## How it works
 
-Quick Release 
+\[To be added.\]
 
 ## Default prefixes
 
