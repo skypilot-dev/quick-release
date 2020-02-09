@@ -35,6 +35,18 @@ standard output
 
 Quick Release 
 
+## Default prefixes
+
+- Major change (X.x.x): `CHG, DROP, MAJOR` (with optional trailing exclamation point)
+- Minor change (x.X.x): `add, feat, minor`
+- Patch change (x.x.X):
+  - Fixes: `bug, fix, patch`
+  - Refactoring: `chore, refactor, task`
+  - Internal features: `util`
+  - Other: _no prefix_
+- No change (patch change if released):  
+  - Documentation & code style: `docs, style`
+
 ## How to customize
 
 \[To be added.\]
