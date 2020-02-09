@@ -4,10 +4,10 @@ import {
   retrieveHeadCommit,
 } from '@skypilot/nodegit-tools';
 import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
-import { git } from '../git/git';
+import { git } from '../git';
+import { PARSABLE_LOG_COMMAND } from '../git/commit/constants';
 import { parseCommitsFromLog } from './parseCommitLog';
 
-const ISO_TIMESTAMP_FORMAT = 'format-local:%Y-%m-%dT%H:%M:%SZ';
 
 export async function findCommitsSinceSha(sha: string): Promise<CommitRecord[]> {
   const headCommit = await retrieveHeadCommit();
@@ -20,13 +20,9 @@ export async function findCommitsSinceSha(sha: string): Promise<CommitRecord[]> 
   const head = getCommitRecord(headCommit);
   const earliest = getCommitRecord(earliestCommit);
 
-  const cmd = [
-    'git log',
-    `--date='${ISO_TIMESTAMP_FORMAT}'`,
-    "--format='%h %cd %s'",
-    '--no-merges',
-    '--no-color',
+  const gitCommand = [
+    PARSABLE_LOG_COMMAND,
     `${earliest.sha}...${head.sha}`,
   ].join(' ');
-  return git(cmd, { preCommand: 'TZ=UTC' }).then((resultString) => parseCommitsFromLog(resultString));
+  return git(gitCommand).then((resultString: string) => parseCommitsFromLog(resultString));
 }
