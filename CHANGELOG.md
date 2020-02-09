@@ -1,3 +1,11 @@
+## [1.0.10](https://github.com/skypilotcc/bump-version/compare/v1.0.9-beta.9...v1.0.10) (2020-02-09)
+
+
+
+## [1.0.9-beta.9](https://github.com/skypilotcc/bump-version/compare/v1.0.9...v1.0.9-beta.9) (2020-02-09)
+
+
+
 ## [1.0.9](https://github.com/skypilotcc/bump-version/compare/v1.0.9-beta.8...v1.0.9) (2020-02-09)
 
 
