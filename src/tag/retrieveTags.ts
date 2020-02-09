@@ -1,6 +1,6 @@
 /* -- Imports -- */
 import { retrieveTagNames } from '@skypilot/nodegit-tools';
-import { findTagByName } from './findTagByName';
+import { findTagByName } from '../git/tag/findTagByName';
 import { GitTag } from './types';
 
 /* -- Main function -- */

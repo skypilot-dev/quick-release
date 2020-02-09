@@ -1,5 +1,5 @@
-import { findCommitByTagName } from '../git';
-import { GitTag } from './types';
+import { GitTag } from '../../tag/types';
+import { findCommitByTagName } from '..';
 
 export async function findTagByName(tagName: string): Promise<GitTag | null> {
   const commit = await findCommitByTagName(tagName);
