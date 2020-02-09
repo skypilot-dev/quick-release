@@ -1,4 +1,4 @@
-import { findCommitByTagName, getCommitRecord } from '@skypilot/nodegit-tools';
+import { findCommitByTagName } from '../git';
 import { GitTag } from './types';
 
 export async function findTagByName(tagName: string): Promise<GitTag | null> {
@@ -6,7 +6,7 @@ export async function findTagByName(tagName: string): Promise<GitTag | null> {
   if (!commit) {
     return null;
   }
-  const { date, sha } = getCommitRecord(commit);
+  const { date, sha } = commit;
   return {
     date,
     name: tagName,

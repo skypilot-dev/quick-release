@@ -1,5 +1,5 @@
-import { findCommitByTagName, getCommitRecord } from '@skypilot/nodegit-tools';
 import { CommitRecord } from '@skypilot/nodegit-tools/lib/functions/commit/getCommitRecord';
+import { findCommitByTagName } from '../git';
 import { findCommitsSinceSha } from './findCommitsSinceSha';
 
 export async function findCommitsSinceTag(tagName: string): Promise<CommitRecord[]> {
@@ -7,6 +7,5 @@ export async function findCommitsSinceTag(tagName: string): Promise<CommitRecord
   if (!taggedCommit) {
     return [];
   }
-  const taggedSha = getCommitRecord(taggedCommit).sha;
-  return findCommitsSinceSha(taggedSha);
+  return findCommitsSinceSha(taggedCommit.sha);
 }
