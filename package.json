@@ -30,7 +30,6 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/nodegit-tools": "^1.0.7",
     "@skypilot/versioner": "^1.1.4"
   },
   "devDependencies": {

@@ -1,9 +1,7 @@
-/* -- Imports -- */
-import { retrieveTagNames } from '@skypilot/nodegit-tools';
+import { GitTag } from '../types';
 import { findTagByName } from './findTagByName';
-import { GitTag } from './types';
+import { retrieveTagNames } from './retrieveTagNames';
 
-/* -- Main function -- */
 /* Return an array of selected details about tags in the current repo. */
 export async function retrieveTags(): Promise<GitTag[]> {
   return await retrieveTagNames()

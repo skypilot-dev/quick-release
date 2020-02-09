@@ -1,9 +1,9 @@
-import { retrieveTagsAtHead } from '../retrieveTagsAtHead';
-import { GitTag } from '../types';
+import { GitTag } from '../../types';
+import { retrieveTags } from '../retrieveTags';
 
-describe('retrieveTagsAtHead()', () => {
-  it('should return an array', async () => {
-    const tags: GitTag[] = await retrieveTagsAtHead();
+describe('retrieveTags()', () => {
+  it('should return all tag records', async () => {
+    const tags: GitTag[] = await retrieveTags();
     expect(Array.isArray(tags)).toBe(true);
     if (tags.length > 0) {
       const [firstTag] = tags;
