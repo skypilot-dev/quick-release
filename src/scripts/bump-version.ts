@@ -5,7 +5,7 @@ import { writePackageFile } from '../common/packageFile/writePackageFile';
 import { getNextVersion } from '../version/getNextVersion';
 
 async function bumpVersion(): Promise<string> {
-  const nextVersion = await getNextVersion();
+  const nextVersion = await getNextVersion({ verbose: true });
   const pathToFile = findUpTree('package.json');
   const packageFileContent = readPackageFile({ pathToFile });
   packageFileContent.version = nextVersion;

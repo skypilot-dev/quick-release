@@ -4,15 +4,19 @@ import { getNextReleaseVersion } from './getNextReleaseVersion';
 import { GetNextVersionOptions, getNextPrereleaseVersion } from './getNextPrereleaseVersion';
 
 export async function getNextVersion(options: GetNextVersionOptions = {}): Promise<string> {
-  const { channel } = options;
-  const resolvedChannel = channel || await retrieveCurrentBranchName();
+  const { channel, verbose } = options;
+  const branchName = channel || await retrieveCurrentBranchName();
 
-  if (!resolvedChannel) {
+  if (verbose) {
+    console.log(`Branch name: ${branchName}`);
+  }
+
+  if (!branchName) {
     return '';
   }
 
-  if (resolvedChannel === STABLE_BRANCH) {
-    return await getNextReleaseVersion();
+  if (branchName === STABLE_BRANCH) {
+    return await getNextReleaseVersion({ verbose });
   }
-  return await getNextPrereleaseVersion({ channel: resolvedChannel });
+  return await getNextPrereleaseVersion({ channel: branchName });
 }

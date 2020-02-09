@@ -43,6 +43,7 @@
     "all-ci-checks": "yarn run all-cq-checks && yarn run build",
     "all-cq-checks": "yarn run typecheck && yarn run lint --quiet && yarn test",
     "build": "rm -rf lib && yarn run compile-ts",
+    "bump-version": "babel-node --extensions .ts src/scripts/bump-version.ts",
     "ci": "yarn run all-ci-checks",
     "compile-ts": "babel ./src --out-dir ./lib --extensions .ts --ignore '**/__tests__/*' --ignore '**/*.d.ts' && yarn run generate-typings",
     "cq": "yarn run all-cq-checks",

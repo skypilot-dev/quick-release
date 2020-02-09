@@ -11,6 +11,7 @@ import { ChangeLevel } from '..';
 
 export interface GetNextVersionOptions {
   channel?: string;
+  verbose?: boolean;
 }
 
 export async function getNextPrereleaseVersion(options: GetNextVersionOptions = {}): Promise<string> {

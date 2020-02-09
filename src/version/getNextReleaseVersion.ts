@@ -2,16 +2,22 @@ import { ReleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceTag } from '../git/commit/findCommitsSinceTag';
 import { retrieveTags } from '../git/tag/retrieveTags';
 import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
+import { GetNextVersionOptions } from './getNextPrereleaseVersion';
 import { readPublishedVersions } from './parsePublishedVersions';
 import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
 
-export async function getNextReleaseVersion(): Promise<string> {
+export async function getNextReleaseVersion(options: GetNextVersionOptions = {}): Promise<string> {
+  const { verbose } = options;
   const currentVersion = getCoreVersion();
 
   /* First handle the case when the current commit is already tagged as a release. */
   const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
     .map(({ name }) => name)
     .filter(ReleaseVersion.versionFilter);
+  if (verbose) {
+    console.log('Current version:', currentVersion);
+    console.log('Version tags at HEAD:', versionTagNamesAtCurrentCommit);
+  }
 
   if (versionTagNamesAtCurrentCommit.length > 0) {
     /* The commit is already tagged as a release, so return the highest tag. */
@@ -19,6 +25,10 @@ export async function getNextReleaseVersion(): Promise<string> {
       currentVersion,
       ...versionTagNamesAtCurrentCommit,
     ]);
+    if (verbose) {
+      console.log('Highest version tag at HEAD:', versionTagNamesAtCurrentCommit);
+    }
+
     return new ReleaseVersion(highestVersionAtHead).versionString;
   }
 
@@ -28,6 +38,10 @@ export async function getNextReleaseVersion(): Promise<string> {
     .filter(ReleaseVersion.versionFilter);
 
   const publishedVersions: string[] = readPublishedVersions().filter(ReleaseVersion.versionFilter);
+  if (verbose) {
+    console.log('Tagged versions:', taggedVersions);
+    console.log('Published versions:', publishedVersions);
+  }
 
   if (taggedVersions.length === 0) {
     /* No releases yet. Use `1.0.0` to signify the first release, unless the version in
@@ -37,6 +51,10 @@ export async function getNextReleaseVersion(): Promise<string> {
 
   const highestVersion = ReleaseVersion.highestOf([...publishedVersions, ...taggedVersions]);
   const highestTag = ReleaseVersion.highestOf(taggedVersions);
+  if (verbose) {
+    console.log('Highest version:', highestVersion);
+    console.log('Highest tag:', highestTag);
+  }
 
   /* The version in the package file should match the highest version. When it doesn't, the change
    * level can't be calculated; fall back to doing a patch-bump on the highest known version. */
@@ -48,8 +66,14 @@ export async function getNextReleaseVersion(): Promise<string> {
   const minVersion = ReleaseVersion.highestOf([currentVersion, highestTag]);
   const commitsSinceTag = (await findCommitsSinceTag(highestTag))
     .map(({ message }) => message);
+
   /* The version must always be incremented, so enforce a change level of at least `patch`. */
   const changeLevel = Math.max(parseMessagesChangeLevel(commitsSinceTag), ChangeLevel.patch);
   const nextVersion = new ReleaseVersion(minVersion).bump(changeLevel);
+  if (verbose) {
+    console.log('Commits since last version tag:', commitsSinceTag);
+    console.log('Change level:', changeLevel);
+    console.log('Next version:', nextVersion.versionString);
+  }
   return nextVersion.versionString;
 }
