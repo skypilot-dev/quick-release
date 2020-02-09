@@ -15,5 +15,6 @@ export const PARSABLE_LOG_COMMAND = [
 export const PARSABLE_SHOW_COMMAND = [
   'TZ=UTC',
   'git show',
+  '--no-patch',
   PARSABLE_LOG_FORMAT,
 ].join(' ');
