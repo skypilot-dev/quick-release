@@ -1,3 +1,12 @@
+## [1.0.11](https://github.com/skypilotcc/bump-version/compare/v1.0.10...v1.0.11) (2020-02-09)
+
+
+### Bug Fixes
+
+* Single-commit retrieval fails at merge commit ([d8371d3](https://github.com/skypilotcc/bump-version/commit/d8371d33dad20e45a08633ffc37a14dddd877945))
+
+
+
 ## [1.0.10](https://github.com/skypilotcc/bump-version/compare/v1.0.9-beta.9...v1.0.10) (2020-02-09)
 
 
