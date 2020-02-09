@@ -14,12 +14,12 @@ describe('parseCommitChangeLevel(commitMessage:string)', () => {
     expect(changeLevel).toBe(ChangeLevel.none);
   });
 
-  it('when the message has one of the special prefixes, should return the corresponding ChangeLevel', () => {
-    expect.assertions(11);
+  it('when the message has one of the special prefixes, regardless of case, should return the corresponding ChangeLevel', () => {
     COMMIT_TYPE_DEFS.forEach((commitTypeDef) => {
       const { changeLevel, prefixes } = commitTypeDef;
       prefixes.forEach((prefix) => {
-        expect(parseMessageChangeLevel(`${prefix}: message`)).toBe(changeLevel);
+        expect(parseMessageChangeLevel(`${prefix.toLowerCase()}: message`)).toBe(changeLevel);
+        expect(parseMessageChangeLevel(`${prefix.toUpperCase()}: message`)).toBe(changeLevel);
       });
     });
   });

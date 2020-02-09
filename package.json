@@ -1,13 +1,14 @@
 {
-  "name": "@skypilot/bump-version",
+  "name": "@skypilot/quick-release",
   "description": "Automatically bumps a project's version number",
-  "homepage": "https://github.com/skypilotcc/bump-version#readme",
+  "homepage": "https://github.com/skypilotcc/quick-release#readme",
   "version": "1.0.11",
   "main": "lib/index.js",
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
     "get-current-version": "./lib/scripts/get-current-version.js",
-    "get-next-version": "./lib/scripts/get-next-version.js"
+    "get-next-version": "./lib/scripts/get-next-version.js",
+    "spqr-option": "./lib/scripts/spqr-option.js"
   },
   "author": {
     "email": "william@thorsen.dev",
@@ -15,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skypilotcc/bump-version.git"
+    "url": "git+https://github.com/skypilotcc/quick-release.git"
   },
   "bugs": {
-    "url": "https://github.com/skypilotcc/bump-version/issues"
+    "url": "https://github.com/skypilotcc/quick-release/issues"
   },
   "keywords": [
     "automatically",
@@ -30,11 +31,15 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/versioner": "^1.1.4"
+    "@skypilot/versioner": "^1.1.4",
+    "lodash.get": "^4.4.2",
+    "yaml": "^1.7.2"
   },
   "devDependencies": {
     "@skypilot/common-types": "^1.0.2",
-    "@skypilot/toolchain": "^2.1.3"
+    "@skypilot/toolchain": "^2.1.3",
+    "@types/lodash.get": "^4.4.6",
+    "@types/yaml": "^1.2.0"
   },
   "files": [
     "/lib"
@@ -42,16 +47,19 @@
   "scripts": {
     "all-ci-checks": "yarn run all-cq-checks && yarn run build",
     "all-cq-checks": "yarn run typecheck && yarn run lint --quiet && yarn test",
-    "build": "rm -rf lib && yarn run compile-ts",
+    "build": "rm -rf lib && yarn run copy-scripts-to-lib && yarn run compile-ts",
     "bump-version": "babel-node --extensions .ts src/scripts/bump-version.ts",
     "ci": "yarn run all-ci-checks",
     "compile-ts": "babel ./src --out-dir ./lib --extensions .ts --ignore '**/__tests__/*' --ignore '**/*.d.ts' && yarn run generate-typings",
+    "copy-scripts-to-lib": "babel-node --extensions .ts build/copy-scripts-to-lib.ts",
     "cq": "yarn run all-cq-checks",
     "generate-typings": "tsc --project tsconfig.generate-typings.json",
+    "get-current-version": "babel-node --extensions .ts src/scripts/get-current-version.ts",
     "get-next-version": "babel-node --extensions .ts src/scripts/get-next-version.ts",
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
     "publish:default": "yarn publish --non-interactive",
+    "spqr-option": "babel-node --extensions .ts src/scripts/spqr-option.ts",
     "tc": "yarn run typecheck",
     "test": "jest",
     "typecheck": "tsc"

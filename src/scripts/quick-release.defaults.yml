@@ -1,0 +1,16 @@
+version: 2
+bot:
+  name: 'SkyPilot Bot'
+  email: 'skypilot-bot@users.noreply.github.com'
+build: true
+release:
+  access: 'restricted'
+  channel: 'master'
+  publish: false
+prerelease:
+  access: 'restricted'
+  channels:
+    - 'alpha'
+    - 'beta'
+    - 'next'
+  publish: false
