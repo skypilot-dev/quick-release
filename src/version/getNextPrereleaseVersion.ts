@@ -55,9 +55,8 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const commitsSinceStable = (await findCommitsSinceStable())
     .map(({ message }) => message);
 
-  /* If there are changes since the stable branch (the length includes the current commit), there
-   *must be at least a patch bump. */
-  const changeLevel = commitsSinceStable.length === 1
+  /* If there are changes since the stable branch, there must be at least a patch bump. */
+  const changeLevel = commitsSinceStable.length === 0
     ? ChangeLevel.none
     : Math.max(parseMessagesChangeLevel(commitsSinceStable), ChangeLevel.patch);
 
