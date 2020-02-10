@@ -22,7 +22,7 @@ $ npm add --save-dev @skypilot/quick-release
 
 ## How to use
 
-Quick Release exposes three commands:
+Quick Release exposes four commands:
 
 - `bump-version`: Computes the next version number for your project and writes it to `package.json`
 
@@ -32,12 +32,11 @@ Quick Release exposes three commands:
 standard output
 
 - `spqr-option`: Returns the value mapped to a key in the `.skypilot/quick-release.yml` options
-file, defaulting to either a passed default value (if given) or the default from the default
-options file
+file. If no value is set there, it defaults to the value in the
+[defaults file](src/scripts/quick-release.defaults.yml).
 
-## How it works
-
-\[To be added.\]
+See the files in `.github/workflows` in this repo for examples of how to use Quick Release in a
+GitHub Actions workflow (Quick Release is used for its own releases).
 
 ## Default prefixes
 
@@ -51,9 +50,13 @@ options file
 - No change (patch change if released):  
   - Documentation & code style: `docs, style`
 
+These values will soon be customizable.
+
 ## How to customize
 
-\[To be added.\]
+Quick Release checks for a configuration file at `.skypilot/quick-release.yml` in your project's
+root directory; the settings in that file can be used to customize Quick Release's behaviour.
+See the [defaults file](src/scripts/quick-release.defaults.yml) for available settings.
 
 ### Advanced API
 
@@ -63,3 +66,10 @@ The library also exposes the following functions:
 - `getCurrentVersion(): string`
 - `parseMessageChangeLevel(message: string): ChangeLevel`
 - `parseMessagesChangeLevel(messages: string[]): ChangeLevel`
+
+### Coming soon
+
+These features are slated for development in the near future:
+
+- Changelog generation
+- Automated creation of GitHub Releases
