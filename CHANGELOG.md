@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/skypilotcc/quick-release/compare/v2.3.0-next.0...v2.3.0) (2020-02-10)
+
+
+
+# [2.3.0-next.0](https://github.com/skypilotcc/quick-release/compare/v2.2.4...v2.3.0-next.0) (2020-02-10)
+
+
+### Features
+
+* Can pass option to control verbosity of `bump-version` ([46c34d3](https://github.com/skypilotcc/quick-release/commit/46c34d3664e962e805417aaaa29a1c4a575b0075))
+
+
+
 ## [2.2.4](https://github.com/skypilotcc/quick-release/compare/v2.2.4-beta.0...v2.2.4) (2020-02-10)
 
 
