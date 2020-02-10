@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceStable } from '../git/commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';

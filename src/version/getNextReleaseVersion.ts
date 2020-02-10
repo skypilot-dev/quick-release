@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ReleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceTag } from '../git/commit/findCommitsSinceTag';
 import { retrieveTags } from '../git/tag/retrieveTags';

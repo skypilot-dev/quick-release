@@ -14,7 +14,6 @@ describe('parseNpmVersions()', () => {
       '0.4.12-alpha'
     ]`;
     const versionStrings = parsePublishedVersions(yarnVersionsOutput);
-    console.log('versionStrings:', versionStrings);
     expect(versionStrings).toEqual(['0.3.6', '0.3.7', '0.4.12-alpha'])
   });
 });

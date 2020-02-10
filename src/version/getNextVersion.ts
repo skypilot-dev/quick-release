@@ -8,6 +8,7 @@ export async function getNextVersion(options: GetNextVersionOptions = {}): Promi
   const branchName = channel || await retrieveCurrentBranchName();
 
   if (verbose) {
+    // eslint-disable-next-line no-console
     console.log(`Branch name: ${branchName}`);
   }
 
