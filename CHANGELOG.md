@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/skypilotcc/quick-release/compare/v2.0.2...v2.1.0) (2020-02-10)
+
+
+### Features
+
+* Can report whether a version has been published ([c845cc2](https://github.com/skypilotcc/quick-release/commit/c845cc2cbaa50a07f7da0ecbba3d696af8fdd551))
+
+
+
 ## [2.0.2](https://github.com/skypilotcc/quick-release/compare/v2.0.1...v2.0.2) (2020-02-10)
 
 
