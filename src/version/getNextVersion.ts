@@ -18,5 +18,5 @@ export async function getNextVersion(options: GetNextVersionOptions = {}): Promi
   if (branchName === STABLE_BRANCH) {
     return await getNextReleaseVersion({ verbose });
   }
-  return await getNextPrereleaseVersion({ channel: branchName });
+  return await getNextPrereleaseVersion({ channel: branchName, verbose });
 }

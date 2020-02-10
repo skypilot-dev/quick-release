@@ -1,5 +1,4 @@
 import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
-import { parseMessagesChangeLevel } from '../changeLevel/parseMessagesChangeLevel';
 import { findCommitsSinceStable } from '../git/commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
 import { retrieveCurrentBranchName } from '../git';
@@ -7,7 +6,7 @@ import { retrieveTags } from '../git/tag/retrieveTags';
 import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
 import { readPublishedVersions } from './parsePublishedVersions';
 import { getCoreVersion } from './getCoreVersion';
-import { ChangeLevel } from '..';
+import { ChangeLevel, parseMessagesChangeLevel } from '..';
 
 export interface GetNextVersionOptions {
   channel?: string;
@@ -17,7 +16,9 @@ export interface GetNextVersionOptions {
 export async function getNextPrereleaseVersion(options: GetNextVersionOptions = {}): Promise<string> {
   const {
     channel = await retrieveCurrentBranchName(),
+    verbose,
   } = options;
+  const currentVersion = getCoreVersion();
 
   if (!channel) {
     return '';
@@ -35,28 +36,49 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const versionTagNamesAtHead = (await retrieveTagsAtHead())
     .map(({ name }) => name)
     .filter((tagName) => channelVersionPattern.test(tagName));
+  if (verbose) {
+    console.log('Current version:', currentVersion);
+    console.log('Version tags at HEAD:', versionTagNamesAtHead);
+  }
 
   if (versionTagNamesAtHead.length > 0) {
     /* The commit is already tagged as a prerelease in this channel, so return the highest tag. */
     const highestVersionAtHead = PrereleaseVersion.highestOf(versionTagNamesAtHead);
     return new PrereleaseVersion(highestVersionAtHead).versionString;
   }
+  if (verbose) {
+    console.log('Highest version tag at HEAD:', versionTagNamesAtHead);
+  }
 
-  /* The commit isn't tagged as a prerelease, so this is a new prerelease. Get all commits since
-   * this branch diverged from `master` & analyze them to determine the change level. */
+  /* Get all commits since this branch diverged from `master` & analyze them to determine the
+   * change level. */
   const commitsSinceStable = (await findCommitsSinceStable())
     .map(({ message }) => message);
 
-  /* If there are changes since master (the length includes the current commit),
-   * there must be at least a patch bump. */
+  /* If there are changes since master (the length includes the current commit), there must be at
+   * least a patch bump. */
   const changeLevel = commitsSinceStable.length <= 1
     ? ChangeLevel.none
     : Math.max(parseMessagesChangeLevel(commitsSinceStable), ChangeLevel.patch);
 
-  /* Get all tags in the repo plus all tags fetched from from NPM;
-   * `bumpVersion` will use them to compute the next iteration. */
-  const tagNames = (await retrieveTags())
+  /* Get all version tags for this channel, both from the repo & from NPM.
+   * `bumpVersion` uses the version tags to compute the next iteration. */
+  const taggedVersions: string[] = (await retrieveTags())
     .map(({ name }) => name)
-    .concat(...readPublishedVersions());
-  return bumpVersion(getCoreVersion(), changeLevel, channel, tagNames);
+    .filter((tagName) => channelVersionPattern.test(tagName));
+  const publishedVersions: string[] = readPublishedVersions()
+    .filter((tagName) => channelVersionPattern.test(tagName));
+  const allVersionTags = [...taggedVersions, ...publishedVersions];
+  if (verbose) {
+    console.log('Tagged versions:', taggedVersions);
+    console.log('Published versions:', publishedVersions);
+  }
+
+  const nextVersion = bumpVersion(currentVersion, changeLevel, channel, allVersionTags);
+  if (verbose) {
+    console.log('Commits since stable:', commitsSinceStable);
+    console.log('Change level:', changeLevel);
+    console.log('Next version:', nextVersion);
+  }
+  return nextVersion;
 }
