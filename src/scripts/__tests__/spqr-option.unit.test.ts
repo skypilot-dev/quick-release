@@ -9,7 +9,7 @@ describe('readOption()', () => {
   const getOption = getOrDefault(releaseOptions);
   it('can read a numeric value mapped to a key in the release-options file', () => {
     const value = getOption('version');
-    const expectedValue = 2;
+    const expectedValue = 1;
     expect(value).toBe(expectedValue);
   });
 

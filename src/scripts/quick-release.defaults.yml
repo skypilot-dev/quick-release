@@ -1,5 +1,7 @@
-version: 2
+# The settings, if any, in `.toolchain/quick-release.yml` override these defaults.
+version: 1
 bot:
+  # These values are used to sign commits & tags in GitHub Actions workflows
   name: 'SkyPilot Bot'
   email: 'skypilot-bot@users.noreply.github.com'
 build: true

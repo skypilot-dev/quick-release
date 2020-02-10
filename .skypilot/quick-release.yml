@@ -1,5 +1,7 @@
-version: 2
+# These values override the settings in `src/scripts/quick-release.defaults.yml`
+version: 1
 bot:
+  # These values are used to sign commits & tags in GitHub Actions workflows
   name: 'SkyPilot Bot'
   email: 'bot@skypilot.dev'
 release:
