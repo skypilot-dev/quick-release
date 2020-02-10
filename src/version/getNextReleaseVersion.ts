@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { ReleaseVersion } from '@skypilot/versioner';
+import { changeLevelToString, ReleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceTag } from '../git/commit/findCommitsSinceTag';
 import { retrieveTags } from '../git/tag/retrieveTags';
 import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
@@ -17,7 +17,7 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
     .filter(ReleaseVersion.versionPatternFilter);
   if (verbose) {
     console.log('Current version:', currentVersion);
-    console.log('Version tags at HEAD:', versionTagNamesAtHead);
+    console.log('Release version tags at HEAD:', versionTagNamesAtHead);
   }
 
   if (versionTagNamesAtHead.length > 0) {
@@ -41,7 +41,7 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   const publishedVersions: string[] = readPublishedVersions()
     .filter(ReleaseVersion.versionPatternFilter);
   if (verbose) {
-    console.log('Tagged versions:', taggedVersions);
+    console.log('Version tags:', taggedVersions);
     console.log('Published versions:', publishedVersions);
   }
 
@@ -54,8 +54,8 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   const highestVersion = ReleaseVersion.highestOf([...publishedVersions, ...taggedVersions]);
   const highestTag = ReleaseVersion.highestOf(taggedVersions);
   if (verbose) {
-    console.log('Highest version:', highestVersion);
-    console.log('Highest tag:', highestTag);
+    console.log('Highest version tag:', highestTag);
+    console.log('Highest known version:', highestVersion);
   }
 
   /* The version in the package file should match the highest version. When it doesn't, the change
@@ -74,7 +74,7 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   const nextVersion = new ReleaseVersion(minVersion).bump(changeLevel);
   if (verbose) {
     console.log('Commits since last version tag:', commitsSinceTag);
-    console.log('Change level:', changeLevel);
+    console.log('Change level:', changeLevel, changeLevelToString(changeLevel));
     console.log('Next version:', nextVersion.versionString);
   }
   return nextVersion.versionString;

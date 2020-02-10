@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { bumpVersion, PrereleaseVersion } from '@skypilot/versioner';
+import { bumpVersion, changeLevelToString, PrereleaseVersion } from '@skypilot/versioner';
 import { findCommitsSinceStable } from '../git/commit/findCommitsSinceStable';
 import { STABLE_BRANCH } from '../config';
 import { retrieveCurrentBranchName } from '../git';
@@ -38,7 +38,7 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   if (verbose) {
     console.log('Channel:', channel);
     console.log('Current version:', currentVersion);
-    console.log('Version tags at HEAD:', versionTagNamesAtHead);
+    console.log('Prerelease version tags at HEAD:', versionTagNamesAtHead);
   }
 
   if (versionTagNamesAtHead.length > 0) {
@@ -68,16 +68,16 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const filteredVersions: string[] = taggedVersions
     .filter(PrereleaseVersion.versionPatternFilterFn(channel));
   if (verbose) {
-    console.log('Tagged versions:', taggedVersions);
+    console.log('Version tags', taggedVersions);
     console.log('Published versions:', publishedVersions);
-    console.log('Filtered versions:', filteredVersions);
+    console.log('All versions in this channel:', filteredVersions);
   }
 
   const nextVersion = bumpVersion(currentVersion, changeLevel, channel, filteredVersions);
   if (verbose) {
     console.log('Commits since stable:', commitsSinceStable);
-    console.log('Change level:', changeLevel);
-    console.log('Next version:', nextVersion);
+    console.log('Change level:', changeLevel, changeLevelToString(changeLevel));
+    console.log('Next prerelease version:', nextVersion);
   }
   return nextVersion;
 }
