@@ -30,13 +30,12 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
     );
   }
 
-  const channelVersionPattern = PrereleaseVersion.versionPattern(channel);
-
   /* Handle the case when the current commit is already tagged as a prerelease in this channel. */
   const versionTagNamesAtHead = (await retrieveTagsAtHead())
     .map(({ name }) => name)
-    .filter((tagName) => channelVersionPattern.test(tagName));
+    .filter(PrereleaseVersion.versionPatternFilterFn(channel));
   if (verbose) {
+    console.log('Channel:', channel);
     console.log('Current version:', currentVersion);
     console.log('Version tags at HEAD:', versionTagNamesAtHead);
   }
@@ -63,11 +62,10 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
 
   /* Get all version tags for this channel, both from the repo & from NPM.
    * `bumpVersion` uses the version tags to compute the next iteration. */
-  const taggedVersions: string[] = (await retrieveTags())
-    .map(({ name }) => name);
+  const taggedVersions: string[] = (await retrieveTags()).map(({ name }) => name);
   const publishedVersions: string[] = readPublishedVersions();
   const filteredVersions: string[] = taggedVersions
-    .filter((tagName) => channelVersionPattern.test(tagName));
+    .filter(PrereleaseVersion.versionPatternFilterFn(channel));
   if (verbose) {
     console.log('Tagged versions:', taggedVersions);
     console.log('Published versions:', publishedVersions);

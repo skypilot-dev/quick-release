@@ -13,7 +13,7 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   /* First handle the case when the current commit is already tagged as a release. */
   const versionTagNamesAtHead = (await retrieveTagsAtHead())
     .map(({ name }) => name)
-    .filter(ReleaseVersion.versionFilter);
+    .filter(ReleaseVersion.versionPatternFilter);
   if (verbose) {
     console.log('Current version:', currentVersion);
     console.log('Version tags at HEAD:', versionTagNamesAtHead);
@@ -35,9 +35,10 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   /* The current commit is not tagged as a release. Get the highest of all release tags. */
   const taggedVersions: string[] = (await retrieveTags())
     .map(({ name }) => name)
-    .filter(ReleaseVersion.versionFilter);
+    .filter(ReleaseVersion.versionPatternFilter);
 
-  const publishedVersions: string[] = readPublishedVersions().filter(ReleaseVersion.versionFilter);
+  const publishedVersions: string[] = readPublishedVersions()
+    .filter(ReleaseVersion.versionPatternFilter);
   if (verbose) {
     console.log('Tagged versions:', taggedVersions);
     console.log('Published versions:', publishedVersions);
