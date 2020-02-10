@@ -12,6 +12,9 @@ export function readOptionsFile(options: ReadOptionsFileOptions = {}): JsonObjec
   const {
     pathToFile = path.resolve(findPackageFileDir(), '.skypilot/quick-release.yml'),
   } = options;
-  const fileContents = fs.readFileSync(pathToFile, { encoding: 'utf-8'} );
-  return yaml.parse(fileContents);
+  if (fs.existsSync(pathToFile)) {
+    const fileContents = fs.readFileSync(pathToFile, { encoding: 'utf-8'} );
+    return yaml.parse(fileContents);
+  }
+  return {};
 }
