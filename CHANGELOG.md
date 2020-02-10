@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/skypilotcc/quick-release/compare/v2.2.0...v2.2.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* Change level is incorrectly computed at one commit from stable ([1be6e3b](https://github.com/skypilotcc/quick-release/commit/1be6e3b0f0bbd0a55fc7e3a558dfb83b4cbd4832))
+
+
+
 # [2.2.0](https://github.com/skypilotcc/quick-release/compare/v2.1.0...v2.2.0) (2020-02-10)
 
 
