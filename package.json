@@ -2,7 +2,7 @@
   "name": "@skypilot/quick-release",
   "description": "Automatically bumps a project's version number",
   "homepage": "https://github.com/skypilotcc/quick-release#readme",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "lib/index.js",
   "bin": {
     "bump-version": "./lib/scripts/bump-version.js",
