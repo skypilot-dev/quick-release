@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/skypilotcc/quick-release/compare/v2.1.0...v2.2.0) (2020-02-10)
+
+
+### Features
+
+* Can report whether a version tag has been created ([5af1194](https://github.com/skypilotcc/quick-release/commit/5af11947273ccba8b4a17bcf1176ecadd868367e))
+
+
+
 # [2.1.0](https://github.com/skypilotcc/quick-release/compare/v2.0.2...v2.1.0) (2020-02-10)
 
 
