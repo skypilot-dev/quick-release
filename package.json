@@ -33,12 +33,12 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/versioner": "^1.2.0",
+    "@skypilot/versioner": "^1.2.1",
     "lodash.get": "^4.4.2",
     "yaml": "^1.7.2"
   },
   "devDependencies": {
-    "@skypilot/common-types": "^1.0.4",
+    "@skypilot/common-types": "^1.0.5",
     "@skypilot/toolchain": "^3.2.0",
     "@types/lodash.get": "^4.4.6",
     "@types/yaml": "^1.2.0"

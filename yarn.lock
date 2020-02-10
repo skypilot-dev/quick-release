@@ -1023,10 +1023,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@skypilot/common-types@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@skypilot/common-types/-/common-types-1.0.4.tgz#fb8eec0941c9eb4d9eca314008406364424e16d1"
-  integrity sha512-wHxEO8EceHjvS40G5qm0SsPhBoFClcD0x0ijM/cSLf4BjXUNgZ1DNbWmue196eYYV5s1UjaWMF2MfmrVIQb+HQ==
+"@skypilot/common-types@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@skypilot/common-types/-/common-types-1.0.5.tgz#f500713750f8dfa5943ef35eaa99844e5a3223e1"
+  integrity sha512-s+XokBnxVm5Zx+8LZIdvEwKSV90NPzEgIsUhdmK7dbX4nv7Fcz8epwl6rd3R1b9vglPD/OTiKq0foEUJhTqkSw==
 
 "@skypilot/toolchain@^3.2.0":
   version "3.2.0"
@@ -1057,10 +1057,10 @@
     lint-staged "^10.0.7"
     typescript "^3.7.5"
 
-"@skypilot/versioner@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-1.2.0.tgz#ba2535773b27f716cd2b0fb65efb0a781a5b86a1"
-  integrity sha512-kPfzhMtGsTkbwrhLzHE0/fyv8L2FYEfVZnMrA/82jnLVZbEcm0BzspcklGYrpE4LIsQFVowfXXMhhr+rrKNU5A==
+"@skypilot/versioner@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@skypilot/versioner/-/versioner-1.2.1.tgz#a8e8deb0eff736b4c1bb2558eba84a14a150af07"
+  integrity sha512-wfpmvASTC9iCuzerpq+UlqZliKqnQ24wJwhbD7GYOkU5RyTSfxAy+9fIQ0BWopnLYNj1xXSoF2WcUK37LBED5A==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
