@@ -3,8 +3,10 @@ import * as fs from 'fs';
 const NPM_RELEASES_FILEPATH = 'local/published-versions.txt';
 
 export function parsePublishedVersions(text: string): string[] {
-  const pattern = new RegExp("[^\\[ ',\\]]+", 'g');
-  return text.match(pattern) || [];
+  const pattern = new RegExp("[^\\[',\\]]+", 'g');
+  return text
+    .replace(/\s/g,'')
+    .match(pattern) || [];
 }
 
 /* Read from the file created by running
