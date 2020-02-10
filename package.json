@@ -8,6 +8,7 @@
     "bump-version": "./lib/scripts/bump-version.js",
     "get-current-version": "./lib/scripts/get-current-version.js",
     "get-next-version": "./lib/scripts/get-next-version.js",
+    "is-published": "./lib/scripts/is-published.js",
     "spqr-option": "./lib/scripts/spqr-option.js"
   },
   "author": {
@@ -56,6 +57,7 @@
     "generate-typings": "tsc --project tsconfig.generate-typings.json",
     "get-current-version": "babel-node --extensions .ts src/scripts/get-current-version.ts",
     "get-next-version": "babel-node --extensions .ts src/scripts/get-next-version.ts",
+    "is-published": "babel-node --extensions .ts src/scripts/is-published.ts",
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
     "publish:default": "yarn publish --non-interactive",

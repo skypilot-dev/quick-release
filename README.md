@@ -31,7 +31,9 @@ Quick Release exposes four commands:
 - `get-next-version`: Computes the next version number for your project and displays it to
 standard output
 
-- `spqr-option`: Returns the value mapped to a key in the `.skypilot/quick-release.yml` options
+- `is-published VERSION_STRING`: Returns true if the version has been published, otherwise false
+
+- `spqr-option KEY`: Returns the value mapped to a key in the `.skypilot/quick-release.yml` options
 file. If no value is set there, it defaults to the value in the
 [defaults file](src/scripts/quick-release.defaults.yml).
 

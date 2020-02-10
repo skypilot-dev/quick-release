@@ -41,7 +41,8 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   }
 
   if (versionTagNamesAtHead.length > 0) {
-    /* The commit is already tagged as a prerelease in this channel, so return the highest tag. */
+    /* The commit is already tagged as a prerelease in this channel, so the version should be
+     * the highest tag at HEAD. Publication should be skipped. */
     const highestVersionAtHead = PrereleaseVersion.highestOf(versionTagNamesAtHead);
     return new PrereleaseVersion(highestVersionAtHead).versionString;
   }
