@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/skypilotcc/quick-release/compare/v2.0.1-next.1...v2.0.1) (2020-02-10)
+
+
+
+## [2.0.1-beta.0](https://github.com/skypilotcc/quick-release/compare/v2.0.0...v2.0.1-beta.0) (2020-02-10)
+
+
+
 # [2.0.0](https://github.com/skypilotcc/quick-release/compare/v2.0.0-next.1...v2.0.0) (2020-02-10)
 
 
