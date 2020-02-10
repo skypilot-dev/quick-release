@@ -32,13 +32,13 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
   const channelVersionPattern = PrereleaseVersion.versionPattern(channel);
 
   /* Handle the case when the current commit is already tagged as a prerelease in this channel. */
-  const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
+  const versionTagNamesAtHead = (await retrieveTagsAtHead())
     .map(({ name }) => name)
     .filter((tagName) => channelVersionPattern.test(tagName));
 
-  if (versionTagNamesAtCurrentCommit.length > 0) {
+  if (versionTagNamesAtHead.length > 0) {
     /* The commit is already tagged as a prerelease in this channel, so return the highest tag. */
-    const highestVersionAtHead = PrereleaseVersion.highestOf(versionTagNamesAtCurrentCommit);
+    const highestVersionAtHead = PrereleaseVersion.highestOf(versionTagNamesAtHead);
     return new PrereleaseVersion(highestVersionAtHead).versionString;
   }
 

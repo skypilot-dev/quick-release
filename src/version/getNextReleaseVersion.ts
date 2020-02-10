@@ -11,22 +11,22 @@ export async function getNextReleaseVersion(options: GetNextVersionOptions = {})
   const currentVersion = getCoreVersion();
 
   /* First handle the case when the current commit is already tagged as a release. */
-  const versionTagNamesAtCurrentCommit = (await retrieveTagsAtHead())
+  const versionTagNamesAtHead = (await retrieveTagsAtHead())
     .map(({ name }) => name)
     .filter(ReleaseVersion.versionFilter);
   if (verbose) {
     console.log('Current version:', currentVersion);
-    console.log('Version tags at HEAD:', versionTagNamesAtCurrentCommit);
+    console.log('Version tags at HEAD:', versionTagNamesAtHead);
   }
 
-  if (versionTagNamesAtCurrentCommit.length > 0) {
+  if (versionTagNamesAtHead.length > 0) {
     /* The commit is already tagged as a release, so return the highest tag. */
     const highestVersionAtHead = ReleaseVersion.highestOf([
       currentVersion,
-      ...versionTagNamesAtCurrentCommit,
+      ...versionTagNamesAtHead,
     ]);
     if (verbose) {
-      console.log('Highest version tag at HEAD:', versionTagNamesAtCurrentCommit);
+      console.log('Highest version tag at HEAD:', versionTagNamesAtHead);
     }
 
     return new ReleaseVersion(highestVersionAtHead).versionString;
