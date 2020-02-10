@@ -9,6 +9,7 @@
     "get-current-version": "./lib/scripts/get-current-version.js",
     "get-next-version": "./lib/scripts/get-next-version.js",
     "is-published": "./lib/scripts/is-published.js",
+    "is-tagged": "./lib/scripts/is-tagged.js",
     "spqr-option": "./lib/scripts/spqr-option.js"
   },
   "author": {
@@ -58,6 +59,7 @@
     "get-current-version": "babel-node --extensions .ts src/scripts/get-current-version.ts",
     "get-next-version": "babel-node --extensions .ts src/scripts/get-next-version.ts",
     "is-published": "babel-node --extensions .ts src/scripts/is-published.ts",
+    "is-tagged": "babel-node --extensions .ts src/scripts/is-tagged.ts",
     "lint": "eslint --cache '**/*.{js,ts}'",
     "prepublishOnly": "yarn run typecheck && yarn run lint --quiet && yarn test && yarn run build",
     "publish:default": "yarn publish --non-interactive",
