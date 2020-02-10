@@ -1,4 +1,17 @@
-## [2.2.3](https://github.com/skypilotcc/quick-release/compare/v2.2.2...v2.2.3) (2020-02-10)
+## [2.2.4](https://github.com/skypilotcc/quick-release/compare/v2.2.4-beta.0...v2.2.4) (2020-02-10)
+
+
+
+## [2.2.4-beta.0](https://github.com/skypilotcc/quick-release/compare/v2.2.4-next.0...v2.2.4-beta.0) (2020-02-10)
+
+
+### Bug Fixes
+
+* Change level is incorrectly computed at stable HEAD ([3645f03](https://github.com/skypilotcc/quick-release/commit/3645f0324633d00133dfb6b89337a95c3df7f974))
+
+
+
+## [2.2.4-next.0](https://github.com/skypilotcc/quick-release/compare/v2.2.3...v2.2.4-next.0) (2020-02-10)
 
 
 
