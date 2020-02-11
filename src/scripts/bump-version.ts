@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import { findUpTree } from '../common/filesystem/findUpTree';
-import { readPackageFile } from '../common/packageFile/readPackageFile';
-import { writePackageFile } from '../common/packageFile/writePackageFile';
+import { findUpTree, readPackageFile, writePackageFile } from '@skypilot/sugarbowl';
 import { getNextVersion } from '../version/getNextVersion';
 
 interface BumpVersionOptions {
@@ -11,10 +9,10 @@ interface BumpVersionOptions {
 async function bumpVersion({ verbose }: BumpVersionOptions): Promise<string> {
   const nextVersion = await getNextVersion({ verbose });
   const pathToFile = findUpTree('package.json');
-  const packageFileContent = readPackageFile({ pathToFile });
-  packageFileContent.version = nextVersion;
+  const content = readPackageFile({ pathToFile });
+  content.version = nextVersion;
 
-  writePackageFile(packageFileContent, { pathToFile });
+  writePackageFile({ content: content, pathToFile });
   return nextVersion;
 }
 

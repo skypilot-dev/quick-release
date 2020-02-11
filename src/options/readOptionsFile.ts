@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
 import { JsonObject } from '@skypilot/common-types';
-import { findPackageFileDir } from '../common/packageFile/findPackageFileDir';
+import { findPackageFileDir } from '@skypilot/sugarbowl';
 
 interface ReadOptionsFileOptions {
   pathToFile?: string;

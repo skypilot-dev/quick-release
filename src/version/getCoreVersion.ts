@@ -1,5 +1,5 @@
+import { readPackageFile } from '@skypilot/sugarbowl';
 import { PrereleaseVersion, ReleaseVersion } from '@skypilot/versioner';
-import { readPackageFile } from '../common/packageFile/readPackageFile';
 
 export function getCoreVersion(): string {
   /* FIXME: Always read the version number from the latest commit on the stable branch. */

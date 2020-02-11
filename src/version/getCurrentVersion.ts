@@ -1,4 +1,4 @@
-import { readPackageFile } from '../common/packageFile/readPackageFile';
+import { readPackageFile } from '@skypilot/sugarbowl';
 
 export function getCurrentVersion(): string {
   return readPackageFile().version as string;
