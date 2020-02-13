@@ -6,13 +6,13 @@ let getOption: GetOrDefaultFunction<JsonValue>;
 let releaseOptions: JsonObject;
 
 describe('readOptionsFile', () => {
-  it('the quick-release.yml file should exist', () => {
+  it('the quick-release.yaml file should exist', () => {
     releaseOptions = readOptionsFile();
     getOption = getOrDefault(releaseOptions);
     expect(releaseOptions).toHaveProperty('version');
   });
 
-  it('the quick-release.yml file should exist', () => {
+  it('the quick-release.yaml file should exist', () => {
     const version = getOption('version');
     expect(version).toBe(1);
   });

@@ -4,7 +4,7 @@ import { readOptionsFile } from '../../options/readOptionsFile';
 
 describe('readOption()', () => {
   const releaseOptions = readOptionsFile({
-    pathToFile: path.resolve(__dirname, '..', 'quick-release.defaults.yml'),
+    pathToFile: path.resolve(__dirname, '..', 'quick-release.defaults.yaml'),
   });
   const getOption = getOrDefault(releaseOptions);
   it('can read a numeric value mapped to a key in the release-options file', () => {

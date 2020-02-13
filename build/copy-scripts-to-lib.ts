@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const scriptFilenames = [
-  'quick-release.defaults.yml',
+  'quick-release.defaults.yaml',
 ];
 
 /* Resolve a path relative to the project root */

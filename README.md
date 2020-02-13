@@ -35,9 +35,9 @@ standard output
 
 - `is-tagged VERSION` turns true if the version tag has been used, otherwise false
 
-- `spqr-option KEY`: Returns the value mapped to a key in the `.skypilot/quick-release.yml` options
+- `spqr-option KEY`: Returns the value mapped to a key in the `.skypilot/quick-release.yaml` options
 file. If no value is set there, it defaults to the value in the
-[defaults file](src/scripts/quick-release.defaults.yml).
+[defaults file](src/scripts/quick-release.defaults.yaml).
 
 See the files in `.github/workflows` in this repo for examples of how to use Quick Release in a
 GitHub Actions workflow (Quick Release is used for its own releases).
@@ -58,9 +58,9 @@ These values will soon be customizable.
 
 ## How to customize
 
-Quick Release checks for a configuration file at `.skypilot/quick-release.yml` in your project's
+Quick Release checks for a configuration file at `.skypilot/quick-release.yaml` in your project's
 root directory; the settings in that file can be used to customize Quick Release's behaviour.
-See the [defaults file](src/scripts/quick-release.defaults.yml) for available settings.
+See the [defaults file](src/scripts/quick-release.defaults.yaml) for available settings.
 
 ### Advanced API
 

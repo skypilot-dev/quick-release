@@ -1,4 +1,4 @@
-# The settings, if any, in `.toolchain/quick-release.yml` override these defaults.
+# The settings, if any, in `.toolchain/quick-release.yaml` override these defaults.
 version: 1
 bot:
   # These values are used to sign commits & tags in GitHub Actions workflows

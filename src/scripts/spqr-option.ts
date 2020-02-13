@@ -5,7 +5,7 @@ import { getOrDefault } from '../common/functions/object/getOrDefault';
 
 function readOption<T>(objectPath: string): T | '' {
   const releaseOptions = readOptionsFile();
-  const pathToDefaultOptionsFile = path.resolve(__dirname, 'quick-release.defaults.yml');
+  const pathToDefaultOptionsFile = path.resolve(__dirname, 'quick-release.defaults.yaml');
   const defaultOptions = readOptionsFile({ pathToFile: pathToDefaultOptionsFile });
   const value = getOrDefault(
     releaseOptions,
