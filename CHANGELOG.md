@@ -1,20 +1,24 @@
+## [3.0.1](https://github.com/skypilotcc/quick-release/compare/v3.0.1-beta.0...v3.0.1) (2020-02-14)
+
+
+
+## [3.0.1-beta.0](https://github.com/skypilotcc/quick-release/compare/v3.0.0...v3.0.1-beta.0) (2020-02-14)
+
+
+
 # [3.0.0](https://github.com/skypilotcc/quick-release/compare/v3.0.0-next.0...v3.0.0) (2020-02-14)
 
 
 
-# [3.0.0-next.0](https://github.com/skypilotcc/quick-release/compare/v2.3.1-next.0...v3.0.0-next.0) (2020-02-13)
+# [3.0.0-next.0](https://github.com/skypilotcc/quick-release/compare/v2.3.1-beta.0...v3.0.0-next.0) (2020-02-13)
 
 
 
-## [2.3.1-next.0](https://github.com/skypilotcc/quick-release/compare/v2.3.1-beta.0...v2.3.1-next.0) (2020-02-11)
+## [2.3.1-beta.0](https://github.com/skypilotcc/quick-release/compare/v2.3.0...v2.3.1-beta.0) (2020-02-11)
 
 
 
-# [2.3.0](https://github.com/skypilotcc/quick-release/compare/v2.3.0-next.0...v2.3.0) (2020-02-10)
-
-
-
-# [2.3.0-next.0](https://github.com/skypilotcc/quick-release/compare/v2.2.4...v2.3.0-next.0) (2020-02-10)
+# [2.3.0](https://github.com/skypilotcc/quick-release/compare/v2.2.4...v2.3.0) (2020-02-10)
 
 
 ### Features
@@ -23,11 +27,7 @@
 
 
 
-## [2.2.4](https://github.com/skypilotcc/quick-release/compare/v2.2.4-beta.0...v2.2.4) (2020-02-10)
-
-
-
-## [2.2.4-beta.0](https://github.com/skypilotcc/quick-release/compare/v2.2.3...v2.2.4-beta.0) (2020-02-10)
+## [2.2.4](https://github.com/skypilotcc/quick-release/compare/v2.2.3...v2.2.4) (2020-02-10)
 
 
 ### Bug Fixes
