@@ -1,24 +1,22 @@
 #!/usr/bin/env node
 import * as path from 'path';
-import { readOptionsFile } from '../options/readOptionsFile';
-import { getOrDefault } from '../common/functions/object/getOrDefault';
+import { readConfigFn } from '@skypilot/optio';
+import { findPackageFileDir } from '@skypilot/sugarbowl';
 
-function readOption<T>(objectPath: string): T | '' {
-  const releaseOptions = readOptionsFile();
-  const pathToDefaultOptionsFile = path.resolve(__dirname, 'quick-release.defaults.yaml');
-  const defaultOptions = readOptionsFile({ pathToFile: pathToDefaultOptionsFile });
-  const value = getOrDefault(
-    releaseOptions,
-    objectPath,
-    getOrDefault(defaultOptions, objectPath)
-  );
-  return value === undefined ? '' : value;
-}
+const packageFileDir = findPackageFileDir();
+const readOption = readConfigFn({
+  filepaths: [
+    path.resolve(packageFileDir, 'local/quick-release.yaml'),
+    path.resolve(packageFileDir, '.skypilot/quick-release.yaml'),
+    path.resolve(__dirname, 'quick-release.defaults.yaml'),
+  ],
+});
 
 {
   const args = process.argv.slice(2);
   const [objectPath] = args;
 
-  const value = readOption(objectPath) || '';
+  const value = readOption(objectPath, '');
   console.log(value);
 }
+
