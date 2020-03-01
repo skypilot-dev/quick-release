@@ -1107,20 +1107,20 @@
   resolved "https://registry.yarnpkg.com/@skypilot/babel-config-node-typescript/-/babel-config-node-typescript-0.1.1.tgz#06636cba539a821d0a424fb4d7b9436163c1889f"
   integrity sha512-/DQGzERYQXBz0yNn1sHFBlaRuld0zh7C4HI4HmVKj56pv6rUHzgVjHHgVjtKcPZoy/zUoNev0fUHyFhRYHYS5Q==
 
-"@skypilot/common-types@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@skypilot/common-types/-/common-types-1.3.1.tgz#d09c1ecf8f66ee20483e1981d0d3135e9cc960ca"
-  integrity sha512-ctuUtMkA3ysZDaz22Lze9PZ9QBy1RjAex/bWYenPNvMH+W7UgPG3wgQTFSeMREHaN+M0ajG6XxV3ZNb+UFzEPA==
+"@skypilot/common-types@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@skypilot/common-types/-/common-types-1.3.2.tgz#b22f079cfcc48a8a63e9598b762e110775f2f622"
+  integrity sha512-kJIzLaDyXPBbCAW0a6YHvrmkB3p8hFIMBYqmiBzXPmTa6oiYNkKV4ZzX20pCD7Qo8Sk2+wMjOnvDM2DRGd/Nxg==
 
 "@skypilot/eslint-config-typescript@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@skypilot/eslint-config-typescript/-/eslint-config-typescript-1.0.1.tgz#9688788061e4b212a4db18d6c794d2eb4bb64c41"
   integrity sha512-eTzaemMnn13a6NG3JGEHni0J104Za+2SQtTeL9yBhAq60KC6v9wObbxxznRoMkiGZwi5mizcKGctAHiMuP1EWw==
 
-"@skypilot/optio@^0.2.0-alpha.2":
-  version "0.2.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@skypilot/optio/-/optio-0.2.0-alpha.2.tgz#2a9a85052c1cc400c8e7ee275a01f92c3aa9b635"
-  integrity sha512-ScIfUw6pynEK/oDmSdDq2GSahtjVZYMR+bRpSi1FXx2vM5B+ySQ5GPMmWn7CBrh4MaJ4Csw9bHWNPGd2i345Ag==
+"@skypilot/optio@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@skypilot/optio/-/optio-1.0.1.tgz#41af4d606dbc65dfd46b7a5bb884c22a37dd0285"
+  integrity sha512-tSO0KBQcLY52CAd00zLhCTc7LtrDEfAKb7WozbeCjuCETTli73+F6YB5RY5SFEOLTjadar8thbdrK2OYpug+NA==
   dependencies:
     "@skypilot/sugarbowl" "^1.5.0"
     js-yaml "^3.13.1"
