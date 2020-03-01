@@ -33,7 +33,7 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/optio": "^0.2.0-alpha.2",
+    "@skypilot/optio": "^1.0.1",
     "@skypilot/sugarbowl": "^1.5.0",
     "@skypilot/versioner": "^1.3.1",
     "lodash.get": "^4.4.2",
