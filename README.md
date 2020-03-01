@@ -7,10 +7,25 @@
 
 Automatic generator of version numbers for releases & prereleases
 
-## What does it do
+## What it does
 
 Quick Release analyzes a project's version number, commit history, and version tags to determine
 the version to use for the next release.
+
+## How it works
+
+Quick Release analyzes the following data to determine the next version number:
+
+- the current version in `package.json`
+- the commit messages since the last stable-release tag
+- release and prerelease version tags
+- the branch name
+
+The `master` branch is treated as the stable-release branch. A version bump on this branch
+results in a new version number in the form `X.X.X` (example: `1.0.0`).
+
+All other branches are treated as prerelease branches. A version bump on a prerelease branch
+results in a new version number in the form `X.X.X-<BRANCH NAME>.X` (example: `1.0.0-beta.1`).
 
 ## How to install
 
