@@ -1,9 +1,11 @@
 # @skypilot/quick-release
 
-[![build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Stable%20release?label=build)]()&nbsp;
-[![npm stable](https://img.shields.io/npm/v/@skypilot/quick-release)]()&nbsp;
-[![npm next](https://img.shields.io/npm/v/@skypilot/quick-release/next?label=next)](https://www.npmjs.com/package/@skypilot/quick-release)&nbsp;
-[![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)  
+[![npm stable](https://img.shields.io/npm/v/@skypilot/quick-release?label=stable)](https://www.npmjs.com/package/@skypilot/quick-release)
+[![stable build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Stable%20release?label=stable%20build)]()  
+[![npm next](https://img.shields.io/npm/v/@skypilot/quick-release/next?label=next)](https://www.npmjs.com/package/@skypilot/quick-release)
+[![next build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Prerelease?branch=next&label=next%20build)]()  
+[![Greenkeeper badge](https://badges.greenkeeper.io/skypilotcc/quick-release.svg)](https://greenkeeper.io/)
+[![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 Automatic generator of version numbers for releases & prereleases
 
