@@ -1,11 +1,11 @@
 import { exec } from 'child_process';
-import * as util from 'util';
+import { promisify } from 'util';
 
 interface GitOptions {
   preCommand?: string;
 }
 
-const execAsync = util.promisify(exec);
+const execAsync = promisify(exec);
 
 export async function git(gitCommand: string, options: GitOptions = {}): Promise<string> {
   const {
