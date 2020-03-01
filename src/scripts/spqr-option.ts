@@ -19,4 +19,3 @@ const readOption = readConfigFn({
   const value = readOption(objectPath, '');
   console.log(value);
 }
-

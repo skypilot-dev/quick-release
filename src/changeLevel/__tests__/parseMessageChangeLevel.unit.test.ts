@@ -36,4 +36,3 @@ describe('parseCommitChangeLevel(commitMessage:string)', () => {
     expect(changeLevel).toBe(ChangeLevel.none);
   });
 });
-
