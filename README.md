@@ -3,7 +3,7 @@
 [![build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Stable%20release?label=build)]()&nbsp;
 [![npm stable](https://img.shields.io/npm/v/@skypilot/quick-release)]()&nbsp;
 [![npm next](https://img.shields.io/npm/v/@skypilot/quick-release/next?label=next)](https://www.npmjs.com/package/@skypilot/quick-release)&nbsp;
-[![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)  
+[![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC) [![Greenkeeper badge](https://badges.greenkeeper.io/skypilotcc/quick-release.svg)](https://greenkeeper.io/)  
 
 Automatic generator of version numbers for releases & prereleases
 
