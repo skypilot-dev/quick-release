@@ -7,12 +7,20 @@ bot:
 build: true
 release:
   access: 'restricted'
+  build: false
   channel: 'master'
+  check-code: false
+  deploy: false
   publish: false
 prerelease:
   access: 'restricted'
+  build: false
   channels:
     - 'alpha'
     - 'beta'
     - 'next'
+  check-code: false
+  deploy: false
   publish: false
+code-check:
+  build: true
