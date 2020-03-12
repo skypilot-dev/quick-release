@@ -33,7 +33,7 @@ results in a new version number in the form `X.X.X-<BRANCH NAME>.X` (example: `1
 
 ## How to install
 
-```bash
+```console
 $ yarn add --dev @skypilot/quick-release
 # or
 $ npm add --save-dev @skypilot/quick-release
@@ -43,20 +43,21 @@ $ npm add --save-dev @skypilot/quick-release
 
 Quick Release exposes six commands:
 
-- `bump-version`: Computes the next version number for your project and writes it to `package.json`
+- `bump-version`: Computes the next version number for your project and writes it to
+  `package.json`
 
 - `get-current-version`: Displays your project's current version number from `package.json`
 
 - `get-next-version`: Computes the next version number for your project and displays it to
-standard output
+   standard output
 
 - `is-published VERSION`: Returns true if the version has been published, otherwise false
 
 - `is-tagged VERSION` turns true if the version tag has been used, otherwise false
 
-- `spqr-option KEY`: Returns the value mapped to a key in the `.skypilot/quick-release.yaml` options
-file. If no value is set there, it defaults to the value in the
-[defaults file](src/scripts/quick-release.defaults.yaml).
+- `spqr-option KEY`: Returns the value mapped to a key in the `.skypilot/quick-release.yaml`
+    options file. If no value is set there, it defaults to the value in the
+    [defaults file](src/scripts/quick-release.defaults.yaml).
 
 See the files in `.github/workflows` in this repo for examples of how to use Quick Release in a
 GitHub Actions workflow (Quick Release is used for its own releases).
