@@ -19,14 +19,14 @@ export const COMMIT_TYPE_DEFS: CommitTypeDef[] = [
     heading: 'breaking changes',
     changeLevel: ChangeLevel.major,
     description: "changes to the project's interface that may be incompatible with previous use",
-    prefixes: ['CHG', 'CHG!', 'DROP', 'DROP!', 'MAJOR', 'MAJOR!'],
+    prefixes: ['CHG!', 'DROP!', 'MAJOR', 'MAJOR!'],
   },
   {
     name: 'feature',
     heading: 'features',
     changeLevel: ChangeLevel.minor,
     description: 'feature additions or modifications that do not introduce breaking changes',
-    prefixes: ['add', 'feat', 'ft', 'minor'],
+    prefixes: ['add', 'chg', 'drop', 'feat', 'ft', 'minor'],
   },
   {
     name: 'fix',

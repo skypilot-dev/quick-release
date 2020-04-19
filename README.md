@@ -64,8 +64,8 @@ GitHub Actions workflow (Quick Release is used for its own releases).
 
 ## Default prefixes
 
-- Major change (X.x.x): `CHG, DROP, MAJOR` (with optional trailing exclamation point)
-- Minor change (x.X.x): `add, feat, minor`
+- Major change (X.x.x): `CHG!, DROP!, MAJOR, MAJOR!`
+- Minor change (x.X.x): `add, chg, drop, feat, minor`
 - Patch change (x.x.X):
   - Fixes: `bug, fix, patch`
   - Refactoring: `chore, refactor, task`
