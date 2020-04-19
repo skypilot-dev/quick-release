@@ -1,3 +1,12 @@
+# [3.1.0](https://github.com/skypilotcc/quick-release/compare/v3.1.0-next.0...v3.1.0) (2020-04-19)
+
+
+### Features
+
+* Feature changes & removals can be marked as nonbreaking ([35b39fb](https://github.com/skypilotcc/quick-release/commit/35b39fb12f463cc47725cb1d143580001e6142c5))
+
+
+
 ## [3.0.6](https://github.com/skypilotcc/quick-release/compare/v3.0.6-next.0...v3.0.6) (2020-03-14)
 
 
