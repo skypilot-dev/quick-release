@@ -33,15 +33,15 @@
     "version"
   ],
   "dependencies": {
-    "@skypilot/optio": "^1.0.2",
-    "@skypilot/sugarbowl": "^1.5.2",
-    "@skypilot/versioner": "^1.3.3",
+    "@skypilot/optio": "^1.0.7",
+    "@skypilot/sugarbowl": "^1.7.1",
+    "@skypilot/versioner": "^1.3.4",
     "lodash.get": "^4.4.2",
-    "yaml": "^1.8.2"
+    "yaml": "^1.9.1"
   },
   "devDependencies": {
-    "@skypilot/common-types": "^1.4.3",
-    "@skypilot/toolchain": "^3.5.8",
+    "@skypilot/common-types": "^1.5.0",
+    "@skypilot/toolchain": "^3.6.1",
     "@types/lodash.get": "^4.4.6",
     "@types/yaml": "^1.2.0"
   },
@@ -74,11 +74,6 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public"
-  },
-  "resolutions": {
-    "**/acorn-globals/acorn": "^6.4.1",
-    "**/jsdom/acorn": "^7.1.1",
-    "eslint/**/acorn": "^7.1.1"
   },
   "types": "lib/index.d.ts"
 }
