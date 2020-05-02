@@ -5,7 +5,6 @@
 [![npm next](https://img.shields.io/npm/v/@skypilot/quick-release/next?label=next)](https://www.npmjs.com/package/@skypilot/quick-release)
 ![next build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Prerelease?branch=next&label=next%20build)
 ![Codacy grade](https://img.shields.io/codacy/grade/72ec3062267a473b8f8f27ea3a06d654)
-[![Greenkeeper badge](https://badges.greenkeeper.io/skypilotcc/quick-release.svg)](https://greenkeeper.io/)
 ![downloads](https://img.shields.io/npm/dm/@skypilot/quick-release)
 [![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
