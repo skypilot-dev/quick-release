@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@skypilot/common-types": "^1.6.0",
-    "@skypilot/toolchain": "^3.6.3",
+    "@skypilot/toolchain": "^4.0.0",
     "@types/lodash.get": "^4.4.6"
   },
   "files": [
