@@ -1,7 +1,7 @@
 {
   "name": "@skypilot/quick-release",
   "description": "Automatically bumps a project's version number",
-  "homepage": "https://github.com/skypilotcc/quick-release#readme",
+  "homepage": "https://github.com/skypilot-dev/quick-release#readme",
   "version": "3.1.1",
   "main": "lib/index.js",
   "bin": {
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skypilotcc/quick-release.git"
+    "url": "git+https://github.com/skypilot-dev/quick-release.git"
   },
   "bugs": {
-    "url": "https://github.com/skypilotcc/quick-release/issues"
+    "url": "https://github.com/skypilot-dev/quick-release/issues"
   },
   "keywords": [
     "automatically",

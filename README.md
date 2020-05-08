@@ -1,9 +1,9 @@
 # @skypilot/quick-release
 
 [![npm stable](https://img.shields.io/npm/v/@skypilot/quick-release?label=stable)](https://www.npmjs.com/package/@skypilot/quick-release)
-![stable build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Stable%20release?label=stable%20build)
+![stable build](https://img.shields.io/github/workflow/status/skypilot-dev/quick-release/Stable%20release?label=stable%20build)
 [![npm next](https://img.shields.io/npm/v/@skypilot/quick-release/next?label=next)](https://www.npmjs.com/package/@skypilot/quick-release)
-![next build](https://img.shields.io/github/workflow/status/skypilotcc/quick-release/Prerelease?branch=next&label=next%20build)
+![next build](https://img.shields.io/github/workflow/status/skypilot-dev/quick-release/Prerelease?branch=next&label=next%20build)
 ![Codacy grade](https://img.shields.io/codacy/grade/72ec3062267a473b8f8f27ea3a06d654)
 ![downloads](https://img.shields.io/npm/dm/@skypilot/quick-release)
 [![license: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
