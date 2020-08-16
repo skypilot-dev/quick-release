@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 import lodashGet from 'lodash.get';
 
 export type GetOrDefaultFunction<T> = (objectPath: string, defaultValue?: T) => T | undefined;
