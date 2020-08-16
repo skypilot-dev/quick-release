@@ -1,3 +1,7 @@
+## [3.1.4](https://github.com/skypilot-dev/quick-release/compare/v3.1.4-next.0...v3.1.4) (2020-08-16)
+
+
+
 ## [3.1.3](https://github.com/skypilot-dev/quick-release/compare/v3.1.3-next.0...v3.1.3) (2020-06-01)
 
 
