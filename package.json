@@ -61,7 +61,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@skypilot/optio": "^1.0.12",
+    "@skypilot/optio": "^2.0.0",
     "@skypilot/sugarbowl": "^1.24.1",
     "@skypilot/versioner": "^1.3.8",
     "lodash.get": "^4.4.2",
