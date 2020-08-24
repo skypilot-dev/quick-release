@@ -1,4 +1,4 @@
-import { GitCommit } from '../../types';
+import type { GitCommit } from '../../types';
 import { findCommitByBranchName } from '../findCommitByBranchName';
 
 describe('findCommitByBranchName(branchName:string)', () => {

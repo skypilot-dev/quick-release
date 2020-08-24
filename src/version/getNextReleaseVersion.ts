@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 import { changeLevelToString, ReleaseVersion } from '@skypilot/versioner';
-import { findCommitsSinceTag } from '../git/commit/findCommitsSinceTag';
-import { retrieveTags } from '../git/tag/retrieveTags';
-import { retrieveTagsAtHead } from '../git/tag/retrieveTagsAtHead';
+import { ChangeLevel } from 'src/changeLevel/constants';
+import { parseMessagesChangeLevel } from 'src/changeLevel/parseMessagesChangeLevel';
+import { findCommitsSinceTag } from 'src/git/commit/findCommitsSinceTag';
+import { retrieveTags } from 'src/git/tag/retrieveTags';
+import { retrieveTagsAtHead } from 'src/git/tag/retrieveTagsAtHead';
+import { getCoreVersion } from './getCoreVersion';
 import { GetNextVersionOptions } from './getNextPrereleaseVersion';
 import { readPublishedVersions } from './parsePublishedVersions';
-import { ChangeLevel, getCoreVersion, parseMessagesChangeLevel } from '..';
 
 export async function getNextReleaseVersion(options: GetNextVersionOptions = {}): Promise<string> {
   const { verbose } = options;

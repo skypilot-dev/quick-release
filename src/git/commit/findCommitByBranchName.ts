@@ -1,5 +1,5 @@
 import { git } from '../git';
-import { GitCommit } from '../types';
+import type { GitCommit } from '../types';
 import { findCommitBySha } from './findCommitBySha';
 
 export async function findCommitByBranchName(branchName: string): Promise<GitCommit | null> {

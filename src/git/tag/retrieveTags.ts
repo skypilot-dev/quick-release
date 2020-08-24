@@ -1,4 +1,4 @@
-import { GitTag } from '../types';
+import type { GitTag } from '../types';
 import { findTagByName } from './findTagByName';
 import { retrieveTagNames } from './retrieveTagNames';
 

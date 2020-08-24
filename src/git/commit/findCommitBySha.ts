@@ -1,5 +1,5 @@
 import { git } from '../git';
-import { GitCommit } from '../types';
+import type { GitCommit } from '../types';
 import { parseCommitFromLogEntry } from './parseCommitFromLogEntry';
 
 import { PARSABLE_SHOW_COMMAND } from './constants';

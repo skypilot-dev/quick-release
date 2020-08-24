@@ -1,5 +1,5 @@
 import { retrieveTags } from '../../tag/retrieveTags';
-import { GitCommit, GitTag } from '../../types';
+import type { GitCommit, GitTag } from '../../types';
 import { findCommitByTagName } from '../findCommitByTagName';
 
 describe('findCommitByTagName', () => {

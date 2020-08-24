@@ -1,4 +1,4 @@
-import { GitCommit } from '../types';
+import type { GitCommit } from '../types';
 
 export function parseCommitFromLogEntry(logEntry: string): GitCommit {
   const splits = logEntry.trim().split(' ');

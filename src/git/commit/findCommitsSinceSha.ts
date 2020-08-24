@@ -1,5 +1,5 @@
 import { findCommitBySha, git } from '../index';
-import { GitCommit } from '../types';
+import type { GitCommit } from '../types';
 import { parseCommitsFromLog } from './parseCommitsFromLog';
 import { PARSABLE_LOG_COMMAND } from './constants';
 import { retrieveHeadCommit } from './retrieveHeadCommit';

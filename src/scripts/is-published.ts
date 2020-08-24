@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { PrereleaseVersion, ReleaseVersion } from '@skypilot/versioner';
-import { readPublishedVersions } from '../version/parsePublishedVersions';
+import { readPublishedVersions } from 'src/version/parsePublishedVersions';
 
 function isPublishedRelease(versionString: string, publishedVersions: string[]): boolean {
   const sorter = ReleaseVersion.sorter;

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { PrereleaseVersion, ReleaseVersion } from '@skypilot/versioner';
-import { retrieveTags } from '../git/tag/retrieveTags';
+import { retrieveTags } from 'src/git/tag/retrieveTags';
 
 function isTaggedRelease(versionString: string, publishedVersions: string[]): boolean {
   const sorter = ReleaseVersion.sorter;

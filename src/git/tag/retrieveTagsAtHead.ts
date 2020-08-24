@@ -1,5 +1,5 @@
 import { retrieveHeadCommit } from '../commit/retrieveHeadCommit';
-import { GitCommit, GitTag } from '../types';
+import type { GitCommit, GitTag } from '../types';
 import { retrieveTags } from './retrieveTags';
 
 export async function retrieveTagsAtHead(): Promise<GitTag[]> {

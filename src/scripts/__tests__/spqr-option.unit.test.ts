@@ -1,8 +1,8 @@
-import * as path from 'path';
-import { getOrDefault } from '../../common/functions/object/getOrDefault';
-import { readOptionsFile } from '../../options/readOptionsFile';
+import path from 'path';
+import { getOrDefault } from 'src/common/functions/object/getOrDefault';
+import { readOptionsFile } from 'src/options/readOptionsFile';
 
-describe('readOption()', () => {
+describe('readOptionsFile()', () => {
   const releaseOptions = readOptionsFile({
     pathToFile: path.resolve(__dirname, '..', 'quick-release.defaults.yaml'),
   });

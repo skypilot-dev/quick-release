@@ -1,4 +1,4 @@
-import { GitTag } from '../../types';
+import type { GitTag } from '../../types';
 import { retrieveTagsAtHead } from '../retrieveTagsAtHead';
 
 describe('retrieveTagsAtHead()', () => {
