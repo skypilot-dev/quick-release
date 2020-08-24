@@ -1,9 +1,9 @@
-import { JsonObject, JsonValue } from '@skypilot/common-types';
+import type { JsonMap, JsonValue } from '@skypilot/common-types';
 import { getOrDefault, GetOrDefaultFunction } from '../common/functions/object/getOrDefault';
 import { readOptionsFile } from '../options/readOptionsFile';
 
 let getOption: GetOrDefaultFunction<JsonValue>;
-let releaseOptions: JsonObject;
+let releaseOptions: JsonMap;
 
 describe('readOptionsFile', () => {
   it('the quick-release.yaml file should exist', () => {
