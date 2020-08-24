@@ -6,15 +6,14 @@ describe('readOption()', () => {
   const releaseOptions = readOptionsFile({
     pathToFile: path.resolve(__dirname, '..', 'quick-release.defaults.yaml'),
   });
-  const getOption = getOrDefault(releaseOptions);
   it('can read a numeric value mapped to a key in the release-options file', () => {
-    const value = getOption('version');
+    const value = getOrDefault(releaseOptions, 'version');
     const expectedValue = 1;
     expect(value).toBe(expectedValue);
   });
 
   it('can read the value mapped to an object path', () => {
-    const value = getOption('bot.email');
+    const value = getOrDefault(releaseOptions, 'bot.email');
     const expectedValue = 'skypilot-bot@users.noreply.github.com';
     expect(value).toBe(expectedValue);
   });
