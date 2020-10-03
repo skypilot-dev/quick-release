@@ -1,3 +1,16 @@
+# [3.2.0](https://github.com/skypilot-dev/quick-release/compare/v3.2.0-next.0...v3.2.0) (2020-10-03)
+
+
+
+# [3.2.0-next.0](https://github.com/skypilot-dev/quick-release/compare/v3.1.6-next.0...v3.2.0-next.0) (2020-10-03)
+
+
+### Features
+
+* Support a stable release branch other than 'master' ([3185940](https://github.com/skypilot-dev/quick-release/commit/318594055835cda895fd903942c4b9d3b9d2158c))
+
+
+
 ## [3.1.5](https://github.com/skypilot-dev/quick-release/compare/v3.1.5-next.0...v3.1.5) (2020-08-16)
 
 
