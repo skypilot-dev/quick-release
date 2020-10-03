@@ -27,8 +27,13 @@ Quick Release analyzes the following data to determine the next version number:
 The `master` branch is treated as the stable-release branch. A version bump on this branch
 results in a new version number in the form `X.X.X` (example: `1.0.0`).
 
-All other branches are treated as prerelease branches. A version bump on a prerelease branch
-results in a new version number in the form `X.X.X-<BRANCH NAME>.X` (example: `1.0.0-beta.1`).
+If the stable-release branch has a name other than `master`, set it using the `STABLE_RELEASE_BRANCH`
+environment variable in each of the workflow files. Note that the use of `master` is deprecated,
+and `main` will become the default stable-release branch name in a future version of this library.
+
+All branches other than the stable-release branch are treated as prerelease branches. A version bump
+on a prerelease branch results in a new version number in the form `X.X.X-<BRANCH NAME>.X`
+(example: `1.0.0-beta.1`).
 
 ## How to install
 
