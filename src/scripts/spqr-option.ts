@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import * as path from 'path';
-import { readConfigFn } from '@skypilot/optio';
+import path from 'path';
+import { configureReadConfigValue } from '@skypilot/optio';
 import { findPackageFileDir } from '@skypilot/sugarbowl';
 
 const packageFileDir = findPackageFileDir();
-const readOption = readConfigFn({
+const readOption = configureReadConfigValue({
   filepaths: [
     path.resolve(packageFileDir, 'local/quick-release.yaml'),
     path.resolve(packageFileDir, '.skypilot/quick-release.yaml'),
@@ -16,6 +16,6 @@ const readOption = readConfigFn({
   const args = process.argv.slice(2);
   const [objectPath] = args;
 
-  const value = readOption(objectPath, '');
+  const value = readOption(objectPath, { defaultValue: '' });
   console.log(value);
 }

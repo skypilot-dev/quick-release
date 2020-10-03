@@ -1,5 +1,5 @@
-import { STABLE_BRANCH } from '../config';
-import { retrieveCurrentBranchName } from '../git';
+import { STABLE_BRANCH } from 'src/config';
+import { retrieveCurrentBranchName } from 'src/git';
 import { getNextReleaseVersion } from './getNextReleaseVersion';
 import { GetNextVersionOptions, getNextPrereleaseVersion } from './getNextPrereleaseVersion';
 

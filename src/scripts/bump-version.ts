@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { findUpTree, readPackageFile, writePackageFile } from '@skypilot/sugarbowl';
-import { getNextVersion } from '../version/getNextVersion';
+import { getNextVersion } from 'src/version/getNextVersion';
 
 interface BumpVersionOptions {
   verbose: boolean;
@@ -12,7 +12,7 @@ async function bumpVersion({ verbose }: BumpVersionOptions): Promise<string> {
   const content = readPackageFile({ pathToFile });
   content.version = nextVersion;
 
-  writePackageFile({ content: content, pathToFile });
+  writePackageFile({ content, pathToFile });
   return nextVersion;
 }
 

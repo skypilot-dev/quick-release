@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 
 const NPM_RELEASES_FILEPATH = 'local/published-versions.txt';
 

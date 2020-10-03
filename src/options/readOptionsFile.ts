@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
-import { JsonObject } from '@skypilot/common-types';
+import type { JsonMap } from '@skypilot/common-types';
 import { findPackageFileDir } from '@skypilot/sugarbowl';
 
 interface ReadOptionsFileOptions {
   pathToFile?: string;
 }
 
-export function readOptionsFile(options: ReadOptionsFileOptions = {}): JsonObject {
+export function readOptionsFile(options: ReadOptionsFileOptions = {}): JsonMap {
   const {
     pathToFile = path.resolve(findPackageFileDir(), '.skypilot/quick-release.yaml'),
   } = options;

@@ -1,4 +1,4 @@
-import { GitCommit } from '../types';
+import type { GitCommit } from '../types';
 import { git } from '../git';
 import { findCommitBySha } from './findCommitBySha';
 

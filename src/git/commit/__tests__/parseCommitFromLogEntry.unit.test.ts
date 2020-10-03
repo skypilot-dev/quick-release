@@ -1,4 +1,4 @@
-import { GitCommit } from '../../types';
+import type { GitCommit } from '../../types';
 import { parseCommitFromLogEntry } from '../parseCommitFromLogEntry';
 
 describe('parseCommitFromLogEntry(commitLogEntry:string', () => {

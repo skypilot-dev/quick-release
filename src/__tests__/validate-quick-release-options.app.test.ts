@@ -1,19 +1,17 @@
-import { JsonObject, JsonValue } from '@skypilot/common-types';
-import { getOrDefault, GetOrDefaultFunction } from '../common/functions/object/getOrDefault';
-import { readOptionsFile } from '../options/readOptionsFile';
+import type { JsonMap } from '@skypilot/common-types';
+import { getOrDefault } from 'src/common/functions/object/getOrDefault';
+import { readOptionsFile } from 'src/options/readOptionsFile';
 
-let getOption: GetOrDefaultFunction<JsonValue>;
-let releaseOptions: JsonObject;
+let releaseOptions: JsonMap;
 
 describe('readOptionsFile', () => {
   it('the quick-release.yaml file should exist', () => {
     releaseOptions = readOptionsFile();
-    getOption = getOrDefault(releaseOptions);
     expect(releaseOptions).toHaveProperty('version');
   });
 
   it('the quick-release.yaml file should exist', () => {
-    const version = getOption('version');
+    const version = getOrDefault(releaseOptions, 'version');
     expect(version).toBe(1);
   });
 });
