@@ -52,8 +52,8 @@ export async function getNextPrereleaseVersion(options: GetNextVersionOptions = 
     console.log('Highest version tag at HEAD:', versionTagNamesAtHead);
   }
 
-  /* Get all commits since this branch diverged from `master` & analyze them to determine the
-   * change level. */
+  /* Get all commits since this branch diverged from the release branch & analyze them to determine
+   * the change level. */
   const commitsSinceStable = (await findCommitsSinceStable())
     .map(({ message }) => message);
 

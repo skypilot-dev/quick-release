@@ -8,7 +8,7 @@ build: true
 release:
   access: 'restricted'
   build: false
-  channel: 'master'
+  channel: 'main'
   check-code: false
   deploy: false
   publish: false
