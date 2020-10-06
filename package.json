@@ -72,6 +72,9 @@
     "@skypilot/toolchain": "^5.0.2",
     "@types/lodash.get": "^4.4.6"
   },
+  "engines": {
+    "node": ">= 10"
+  },
   "publishConfig": {
     "access": "public"
   }
