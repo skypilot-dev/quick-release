@@ -1,10 +1,9 @@
-import { STABLE_BRANCH } from 'src/config';
 import type { GitCommit } from '../../types';
 import { findCommitByBranchName } from '../findCommitByBranchName';
 
 describe('findCommitByBranchName(branchName:string)', () => {
   it('should return a GitCommit object', async () => {
-    const commit: GitCommit | null = await findCommitByBranchName(STABLE_BRANCH);
+    const commit: GitCommit | null = await findCommitByBranchName('main');
     expect.assertions(3);
     if (commit) {
       expect(commit).toHaveProperty('date');
