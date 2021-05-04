@@ -11,5 +11,5 @@ export async function findTagByName(tagName: string): Promise<GitTag | null> {
     date,
     name: tagName,
     sha,
-  }
+  };
 }

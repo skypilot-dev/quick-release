@@ -13,7 +13,7 @@ export function readOptionsFile(options: ReadOptionsFileOptions = {}): JsonMap {
     pathToFile = path.resolve(findPackageFileDir(), '.skypilot/quick-release.yaml'),
   } = options;
   if (fs.existsSync(pathToFile)) {
-    const fileContents = fs.readFileSync(pathToFile, { encoding: 'utf-8'} );
+    const fileContents = fs.readFileSync(pathToFile, { encoding: 'utf-8' } );
     return yaml.parse(fileContents);
   }
   return {};

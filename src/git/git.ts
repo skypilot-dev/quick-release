@@ -19,7 +19,7 @@ export async function git(gitCommand: string, options: GitOptions = {}): Promise
 
   const { stderr, stdout } = await execAsync(commandString, {});
   if (stderr) {
-    return Promise.reject(stderr)
+    return Promise.reject(stderr);
   }
   return stdout.trim();
 }

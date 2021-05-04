@@ -57,19 +57,21 @@
     "publish:default": "yarn publish --non-interactive",
     "spqr-option": "babel-node --extensions .ts src/scripts/spqr-option.ts",
     "tc": "yarn run typecheck",
-    "test": "jest",
+    "test": "jest --config jest.standalone.config.js",
+    "test:all": "jest --config jest.config.js",
+    "test:int": "jest --config jest.integration.config.js",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@skypilot/optio": "^2.0.2",
-    "@skypilot/sugarbowl": "^1.24.2",
+    "@skypilot/optio": "^2.0.3",
+    "@skypilot/sugarbowl": "^3.4.0",
     "@skypilot/versioner": "^1.3.9",
     "lodash.get": "^4.4.2",
-    "yaml": "^1.10.0"
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@skypilot/common-types": "^2.1.3",
-    "@skypilot/toolchain": "^5.1.0",
+    "@skypilot/common-types": "^2.3.0",
+    "@skypilot/toolchain": "^5.2.3",
     "@types/lodash.get": "^4.4.6"
   },
   "engines": {
