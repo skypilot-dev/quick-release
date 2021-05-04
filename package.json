@@ -57,7 +57,9 @@
     "publish:default": "yarn publish --non-interactive",
     "spqr-option": "babel-node --extensions .ts src/scripts/spqr-option.ts",
     "tc": "yarn run typecheck",
-    "test": "jest",
+    "test": "jest --config jest.standalone.config.js",
+    "test:all": "jest --config jest.config.js",
+    "test:int": "jest --config jest.integration.config.js",
     "typecheck": "tsc"
   },
   "dependencies": {
