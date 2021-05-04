@@ -38,7 +38,7 @@ function isVersionPublished(versionString: string): boolean {
       channel
     );
   }
-  throw new Error(`Invalid version string: ${versionString}`)
+  throw new Error(`Invalid version string: ${versionString}`);
 }
 
 {
